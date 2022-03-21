@@ -14,22 +14,24 @@ protocol StartScreenViewProtocol: class {
 
 //input protocol for Presenter
 protocol StartScreenPresenterProtocol: class {
-    init(view: StartScreenViewProtocol)
+    init(view: StartScreenViewProtocol, router: RouterProtocol)
     func pressStartGameButton()
     func pressShowRulesButton()
     func pressDonateAuthor()
 }
 
 class StartScreenPresenter: StartScreenPresenterProtocol {
-    
+   
+    var router: RouterProtocol?
     weak var view: StartScreenViewProtocol?
 
-    required init(view: StartScreenViewProtocol) {
+    required init(view: StartScreenViewProtocol, router: RouterProtocol) {
         self.view = view
+        self.router = router
     }
     
     func pressStartGameButton() {
-        
+        router?.showCreateGameController()
     }
     
     func pressShowRulesButton() {

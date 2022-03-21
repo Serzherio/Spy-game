@@ -8,14 +8,14 @@
 import UIKit
 
 protocol ModuleBuilderProtocol: class {
-    func createStartScreenModule() -> UIViewController
+    func createStartScreenModule(router: RouterProtocol) -> UIViewController
 }
 
 class ModuleBuilder: ModuleBuilderProtocol {
     
-    func createStartScreenModule() -> UIViewController {
+    func createStartScreenModule(router: RouterProtocol) -> UIViewController {
         let view = StartViewController()
-        let presenter = StartScreenPresenter(view: view)
+        let presenter = StartScreenPresenter(view: view, router: router)
         view.presenter = presenter
         return view
     }
