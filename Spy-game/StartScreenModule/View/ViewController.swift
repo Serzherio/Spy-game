@@ -10,16 +10,18 @@ import UIKit
 class StartViewController: UIViewController {
     
     // UI elements
+    let gameTitleLabel = UILabel(textLabel: "Шпион")
     let spyLogoImage = UIImageView(image: UIImage(named: "SpyLogoImage"))
     let rulesButton = UIButton(type: .system)
-    let startGameLabel = UILabel(textLabel: "Начать новую игру:")
-    let startGameButton = UIButton(title: "Создать игру", titleColor: .black, backgroundColor: .white, font: .systemFont(ofSize: 30), isShadow: true, cornerRadius: 20)
+    let startGameButton = UIButton(title: "Создать игру", titleColor: .white, backgroundColor: .black, font: .systemFont(ofSize: 30), isShadow: false, cornerRadius: 20)
+    let showRulesButton = UIButton(title: "Правила игры", titleColor: .black, backgroundColor: .white, font: .systemFont(ofSize: 30), isShadow: false, cornerRadius: 20)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
+        addTitleLabel()
         addRulesButton()
-        addStartGameButton()
+        addButtonsOnScreen()
     }
 
     
@@ -38,39 +40,59 @@ class StartViewController: UIViewController {
         ])
     }
     
+    private func addTitleLabel() {
+        view.addSubview(gameTitleLabel)
+        gameTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        gameTitleLabel.textColor = .black
+        gameTitleLabel.font = UIFont(name: "HelveticaNeue", size: 30)
+        
+        NSLayoutConstraint.activate([
+            gameTitleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
+            gameTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
     private func addRulesButton() {
         view.addSubview(rulesButton)
         rulesButton.translatesAutoresizingMaskIntoConstraints = false
-        rulesButton.setTitle("Правила игры", for: .normal)
+        rulesButton.setTitle("Поддержать автора", for: .normal)
         rulesButton.setTitleColor(.red, for: .normal)
         rulesButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 30)
         NSLayoutConstraint.activate([
             rulesButton.heightAnchor.constraint(equalToConstant: 50),
-//            rulesButton.widthAnchor.constraint(equalToConstant: 100),
             rulesButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             rulesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         rulesButton.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
     }
     
+    
+    
+    private func addButtonsOnScreen() {
+        let stackView = UIStackView(arrangedSubviews: [startGameButton, showRulesButton])
+        stackView.axis = .vertical
+        stackView.spacing = 30
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.distribution = .fillEqually
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: gameTitleLabel.bottomAnchor, constant: 50),
+
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            stackView.heightAnchor.constraint(equalToConstant: 200),
+        ])
+        startGameButton.addTarget(self, action: #selector(startGameButtonPressed), for: .touchUpInside)
+    }
+    
+    // MARK: - UI actions
     @objc func rulesButtonPressed() {
         print("rulesButtonPressed")
     }
     
-    private func addStartGameButton() {
-        //let startGameButton = LabelPlusButtonView(label: startGameLabel, button: startGameButton)
-        let stackView = UIStackView(arrangedSubviews: [startGameButton])
-        stackView.axis = .vertical
-        stackView.spacing = 0
-        view.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 80),
-            stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-            stackView.heightAnchor.constraint(equalToConstant: 80),
-        ])
+    @objc func startGameButtonPressed() {
+        print("startGameButtonPressed")
     }
     
     

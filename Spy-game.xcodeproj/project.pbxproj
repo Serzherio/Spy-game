@@ -13,7 +13,6 @@
 		D51D76D227E77A9D00BE01F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D51D76D127E77A9D00BE01F7 /* Assets.xcassets */; };
 		D51D76D527E77A9D00BE01F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D51D76D327E77A9D00BE01F7 /* LaunchScreen.storyboard */; };
 		D51D76E127E77F1D00BE01F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D51D76E027E77F1D00BE01F7 /* Main.storyboard */; };
-		D51D76E527E793B300BE01F7 /* Label+ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D76E427E793B300BE01F7 /* Label+ButtonView.swift */; };
 		D51D76E727E794E100BE01F7 /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D76E627E794E100BE01F7 /* LabelExtension.swift */; };
 		D51D76E927E7958D00BE01F7 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D76E827E7958D00BE01F7 /* ButtonExtension.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +26,6 @@
 		D51D76D427E77A9D00BE01F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D51D76D627E77A9D00BE01F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D51D76E027E77F1D00BE01F7 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		D51D76E427E793B300BE01F7 /* Label+ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+ButtonView.swift"; sourceTree = "<group>"; };
 		D51D76E627E794E100BE01F7 /* LabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 		D51D76E827E7958D00BE01F7 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,9 +67,7 @@
 				D51D76D327E77A9D00BE01F7 /* LaunchScreen.storyboard */,
 				D51D76D627E77A9D00BE01F7 /* Info.plist */,
 				D51D76E027E77F1D00BE01F7 /* Main.storyboard */,
-				D51D76E427E793B300BE01F7 /* Label+ButtonView.swift */,
-				D51D76E627E794E100BE01F7 /* LabelExtension.swift */,
-				D51D76E827E7958D00BE01F7 /* ButtonExtension.swift */,
+				D51D76EA27E8636000BE01F7 /* UIKitExtensions */,
 			);
 			path = "Spy-game";
 			sourceTree = "<group>";
@@ -106,6 +102,15 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D51D76EA27E8636000BE01F7 /* UIKitExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				D51D76E627E794E100BE01F7 /* LabelExtension.swift */,
+				D51D76E827E7958D00BE01F7 /* ButtonExtension.swift */,
+			);
+			path = UIKitExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +189,6 @@
 				D51D76C927E77A9B00BE01F7 /* AppDelegate.swift in Sources */,
 				D51D76E927E7958D00BE01F7 /* ButtonExtension.swift in Sources */,
 				D51D76CB27E77A9B00BE01F7 /* SceneDelegate.swift in Sources */,
-				D51D76E527E793B300BE01F7 /* Label+ButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
