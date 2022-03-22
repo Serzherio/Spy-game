@@ -23,6 +23,7 @@
 		D5F7FB0527E9C8BF00A96110 /* CreateGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FB0427E9C8BF00A96110 /* CreateGamePresenter.swift */; };
 		D5F7FB0727E9EFA000A96110 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FB0627E9EFA000A96110 /* RulesViewController.swift */; };
 		D5F7FB0D27E9F02F00A96110 /* RulesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FB0C27E9F02F00A96110 /* RulesPresenter.swift */; };
+		D5F7FB0F27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FB0E27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		D5F7FB0427E9C8BF00A96110 /* CreateGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGamePresenter.swift; sourceTree = "<group>"; };
 		D5F7FB0627E9EFA000A96110 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		D5F7FB0C27E9F02F00A96110 /* RulesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesPresenter.swift; sourceTree = "<group>"; };
+		D5F7FB0E27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithLabelAndButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				D51D76DC27E77C6400BE01F7 /* StartScreenModule */,
 				D5F7FB0127E9C7E800A96110 /* CreateGameScreenModule */,
 				D5F7FB0927E9EFB000A96110 /* RulesScreenModule */,
+				D5F7FB1027E9FEC100A96110 /* CustomUIView */,
 				D51D76EA27E8636000BE01F7 /* UIKitExtensions */,
 				D51D76F027E8783A00BE01F7 /* SupportingFiles */,
 			);
@@ -209,6 +212,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		D5F7FB1027E9FEC100A96110 /* CustomUIView */ = {
+			isa = PBXGroup;
+			children = (
+				D5F7FB0E27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift */,
+			);
+			path = CustomUIView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,6 +304,7 @@
 				D5F7FB0D27E9F02F00A96110 /* RulesPresenter.swift in Sources */,
 				D5F7FB0727E9EFA000A96110 /* RulesViewController.swift in Sources */,
 				D51D76CB27E77A9B00BE01F7 /* SceneDelegate.swift in Sources */,
+				D5F7FB0F27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

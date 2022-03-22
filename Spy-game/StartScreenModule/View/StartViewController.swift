@@ -10,7 +10,7 @@ import UIKit
 class StartViewController: UIViewController {
     
     // UI elements
-    let gameTitleLabel = UILabel(textLabel: "Шпион")
+    let gameTitleLabel = UILabel(textLabel: "Шпион", font: .noteworthy50()!)
     let spyLogoImage = UIImageView(image: UIImage(named: "SpyLogoImage"))
     let donateButton = UIButton(type: .system)
     let startGameButton = UIButton(title: "Создать игру", titleColor: .white, backgroundColor: .black, font: .noteworthy30(), isShadow: false, cornerRadius: 40)
@@ -48,7 +48,6 @@ class StartViewController: UIViewController {
         view.addSubview(gameTitleLabel)
         gameTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         gameTitleLabel.textColor = .black
-        gameTitleLabel.font = .noteworthy50()
         
         NSLayoutConstraint.activate([
             gameTitleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
