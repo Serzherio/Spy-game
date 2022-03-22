@@ -35,7 +35,7 @@ class StartScreenPresenter: StartScreenPresenterProtocol {
     }
     
     func pressShowRulesButton() {
-        
+        router?.showRulesController()
     }
     
     func pressDonateAuthor() {

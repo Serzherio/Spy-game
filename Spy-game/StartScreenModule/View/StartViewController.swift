@@ -41,6 +41,7 @@ class StartViewController: UIViewController {
             spyLogoImage.widthAnchor.constraint(equalToConstant: self.view.bounds.width),
             spyLogoImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
         ])
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: .none, action: .none)
     }
     
     private func addTitleLabel() {

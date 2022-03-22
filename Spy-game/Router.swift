@@ -39,11 +39,17 @@ class Router: RouterProtocol {
     }
     
     func showCreateGameController() {
-        
+        if let navigationController = navigationController {
+            guard let createGameVC = moduleBuilder?.createGameModule(router: self) else {return}
+            navigationController.pushViewController(createGameVC, animated: true)
+        }
     }
     
     func showRulesController() {
-        
+        if let navigationController = navigationController {
+            guard let rulesVC = moduleBuilder?.createRulesModule(router: self) else {return}
+            navigationController.pushViewController(rulesVC, animated: true)
+        }
     }
     
     func showDonateController() {
