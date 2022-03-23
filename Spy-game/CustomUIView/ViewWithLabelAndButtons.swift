@@ -8,9 +8,18 @@
 import UIKit
 
 class ViewWithLabelAndButtons: UIView {
+
+    var headLabel = UILabel()
+    var descriptionLabel = UILabel()
+    var buttons = [UIButton]()
     
     init(headLabel: UILabel, descriptionLabel: UILabel, buttons: [UIButton]){
         super.init(frame: .zero)
+        
+        self.headLabel = headLabel
+        self.descriptionLabel = descriptionLabel
+        self.buttons = buttons
+        
         self.translatesAutoresizingMaskIntoConstraints = false
         headLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false

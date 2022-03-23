@@ -22,7 +22,7 @@ protocol CreateGamePresenterProtocol: class {
     func plusButtonForSpyAmmountTapped()
     func minusButtonForDuringTimeTapped()
     func plusButtonForDuringTimeTapped()
-    func yesButtonTapped()
+    func rulesButtonTapped()
     func chooseLocationsButtonTapped()
     
 }
@@ -67,8 +67,12 @@ class CreateGamePresenter: CreateGamePresenterProtocol {
         view?.updateUI()
     }
     
-    func yesButtonTapped() {
-        gameSettings.roles = false
+    func rulesButtonTapped() {
+        if gameSettings.roles == false {
+            gameSettings.roles = true
+        } else {
+            gameSettings.roles = false
+        }
         view?.updateUI()
     }
     

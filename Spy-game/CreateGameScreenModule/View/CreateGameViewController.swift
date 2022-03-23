@@ -10,7 +10,7 @@ import UIKit
 class CreateGameViewController: UIViewController {
     
     //UI elements
-    let titleSettingLabel = UILabel(textLabel: "Настройки игры", font: .noteworthy50()!)
+    var titleSettingLabel = UILabel(textLabel: "Настройки игры", font: .noteworthy50()!)
     let continueButton = UIButton(title: "Продолжить", titleColor: .black, backgroundColor: .white, font: .noteworthy30(), isShadow: true, cornerRadius: 40)
     let minusButtonForPlayersAmmount = UIButton(type: .system)
     let plusButtonForPlayersAmmount = UIButton(type: .system)
@@ -19,16 +19,35 @@ class CreateGameViewController: UIViewController {
     let minusButtonForDuringTime = UIButton(type: .system)
     let plusButtonForDuringTime = UIButton(type: .system)
     let chooseLocationsButton = UIButton(type: .system)
-    let noButton = UIButton(type: .system)
-    let yesButton = UIButton(type: .system)
-    
-    
-    // Custom UI Elements
-    lazy var choosePlayersAmountInGameView = createCustomSettingView(headLabelText: "", descriptionLabelText: "", buttons: [])
+    let rulesButton = UIButton(type: .system)
     
     // variables
     var presenter: CreateGamePresenterProtocol?
 
+    // custom UI elements
+    var choosePlayersAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Игроки:", font: .noteworthy24()!),
+                                                                descriptionLabel: UILabel(textLabel: "",
+                                                                font: .noteworthy24()!),
+                                                                buttons: [])
+    var chooseSpyAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Шпионы:", font: .noteworthy24()!),
+                                                                descriptionLabel: UILabel(textLabel: "",
+                                                                font: .noteworthy24()!),
+                                                                buttons: [])
+    var timeDuringInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Время:", font: .noteworthy24()!),
+                                                                descriptionLabel: UILabel(textLabel: "",
+                                                                font: .noteworthy24()!),
+                                                                buttons: [])
+    var rolePlayView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Роли:", font: .noteworthy24()!),
+                                                                descriptionLabel: UILabel(textLabel: "",
+                                                                font: .noteworthy24()!),
+                                                                buttons: [])
+    var chooseLocationAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Локации:", font: .noteworthy24()!),
+                                                                descriptionLabel: UILabel(textLabel: "",
+                                                                font: .noteworthy24()!),
+                                                                buttons: [])
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundImage")!)
@@ -46,8 +65,7 @@ class CreateGameViewController: UIViewController {
         plusButtonForSpyAmmount.setImage(UIImage(named: "PlusAction"), for: .normal)
         minusButtonForDuringTime.setImage(UIImage(named: "MinusAction"), for: .normal)
         plusButtonForDuringTime.setImage(UIImage(named: "PlusAction"), for: .normal)
-        yesButton.setImage(UIImage(named: "YesAction"), for: .normal)
-        noButton.setImage(UIImage(named: "NoAction"), for: .normal)
+        rulesButton.setImage(UIImage(named: "NoAction"), for: .normal)
         chooseLocationsButton.setImage(UIImage(named: "SearchAction"), for: .normal)
         minusButtonForPlayersAmmount.addTarget(self, action: #selector(minusButtonForPlayersAmmountTapped), for: .touchUpInside)
         plusButtonForPlayersAmmount.addTarget(self, action: #selector(plusButtonForPlayersAmmountTapped), for: .touchUpInside)
@@ -55,16 +73,12 @@ class CreateGameViewController: UIViewController {
         plusButtonForSpyAmmount.addTarget(self, action: #selector(plusButtonForSpyAmmountTapped), for: .touchUpInside)
         minusButtonForDuringTime.addTarget(self, action: #selector(minusButtonForDuringTimeTapped), for: .touchUpInside)
         plusButtonForDuringTime.addTarget(self, action: #selector(plusButtonForDuringTimeTapped), for: .touchUpInside)
-        yesButton.addTarget(self, action: #selector(yesButtonTapped), for: .touchUpInside)
+        rulesButton.addTarget(self, action: #selector(rulesButtonTapped), for: .touchUpInside)
         chooseLocationsButton.addTarget(self, action: #selector(chooseLocationsButtonTapped), for: .touchUpInside)
     }
     
-    private func designCustomView() {
-        guard let gameSet = presenter?.gameSettings else { return }
-        choosePlayersAmountInGameView = createCustomSettingView(headLabelText: "Игроки:",
-                                                                    descriptionLabelText: String(gameSet.playerAmmount),
-                                                                    buttons: [minusButtonForPlayersAmmount, plusButtonForPlayersAmmount])
-    }
+
+    
     
     
     
@@ -78,29 +92,35 @@ class CreateGameViewController: UIViewController {
     private func layoutDesign() {
         guard let gameSet = presenter?.gameSettings else { return }
         
-        //let
-        choosePlayersAmountInGameView = createCustomSettingView(headLabelText: "Игроки:",
-                                                                    descriptionLabelText: String(gameSet.playerAmmount),
-                                                                    buttons: [minusButtonForPlayersAmmount, plusButtonForPlayersAmmount])
-        let chooseSpyAmountInGameView = createCustomSettingView(headLabelText: "Шпионы:",
-                                                                descriptionLabelText: String(gameSet.spyAmmount),
-                                                                buttons: [minusButtonForSpyAmmount, plusButtonForSpyAmmount])
-        let timeDuringInGameView = createCustomSettingView(headLabelText: "Время:",
-                                                           descriptionLabelText: String(gameSet.timeDuring) + " мин",
-                                                           buttons: [minusButtonForDuringTime, plusButtonForDuringTime])
-        var rolePlayView = createCustomSettingView(headLabelText: "Роли:", descriptionLabelText: "да", buttons: [yesButton])
+        choosePlayersAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Игроки:", font: .noteworthy24()!),
+                                                                descriptionLabel: UILabel(textLabel: String(gameSet.playerAmmount),
+                                                                font: .noteworthy24()!),
+                                                                buttons: [minusButtonForPlayersAmmount, plusButtonForPlayersAmmount])
+        chooseSpyAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Шпионы:", font: .noteworthy24()!),
+                                                            descriptionLabel: UILabel(textLabel: String(gameSet.spyAmmount),
+                                                            font: .noteworthy24()!),
+                                                            buttons: [minusButtonForSpyAmmount, plusButtonForSpyAmmount])
+        timeDuringInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Время:", font: .noteworthy24()!),
+                                                       descriptionLabel: UILabel(textLabel: String(gameSet.timeDuring) + " мин",
+                                                       font: .noteworthy24()!),
+                                                       buttons: [minusButtonForDuringTime, plusButtonForDuringTime])
         switch gameSet.roles {
         case true:
-            rolePlayView = createCustomSettingView(headLabelText: "Роли:", descriptionLabelText: "да", buttons: [yesButton])
+            rolePlayView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Роли:", font: .noteworthy24()!),
+                                                   descriptionLabel: UILabel(textLabel: "да", font: .noteworthy24()!),
+                                                   buttons: [rulesButton])
         case false:
-            rolePlayView = createCustomSettingView(headLabelText: "Роли:", descriptionLabelText: "нет", buttons: [noButton])
+            rolePlayView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Роли:", font: .noteworthy24()!),
+                                                   descriptionLabel: UILabel(textLabel: "нет", font: .noteworthy24()!),
+                                                   buttons: [rulesButton])
         }
-       
-        let chooseLocationAmountInGameView = createCustomSettingView(headLabelText: "Локации:",
-                                                                     descriptionLabelText: String(gameSet.locations.count),
-                                                                     buttons: [chooseLocationsButton])
-        
-        let stackView = UIStackView(arrangedSubviews: [choosePlayersAmountInGameView, chooseSpyAmountInGameView, timeDuringInGameView, rolePlayView, chooseLocationAmountInGameView])
+
+        chooseLocationAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Локации:", font: .noteworthy24()!),
+                                                                 descriptionLabel: UILabel(textLabel: String(gameSet.locations.count), font: .noteworthy24()!),
+                                                                 buttons: [chooseLocationsButton])
+
+        let stackView = UIStackView(arrangedSubviews: [ choosePlayersAmountInGameView,
+                                                       chooseSpyAmountInGameView, timeDuringInGameView, rolePlayView, chooseLocationAmountInGameView])
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.spacing = 10
@@ -108,6 +128,11 @@ class CreateGameViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         titleSettingLabel.translatesAutoresizingMaskIntoConstraints = false
         continueButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        stackView.removeFromSuperview()
+        titleSettingLabel.removeFromSuperview()
+        titleSettingLabel.removeFromSuperview()
+        
         self.view.addSubview(stackView)
         self.view.addSubview(titleSettingLabel)
         self.view.addSubview(continueButton)
@@ -146,8 +171,8 @@ class CreateGameViewController: UIViewController {
     @objc private func plusButtonForDuringTimeTapped() {
         presenter?.plusButtonForDuringTimeTapped()
     }
-    @objc private func yesButtonTapped() {
-        presenter?.yesButtonTapped()
+    @objc private func rulesButtonTapped() {
+        presenter?.rulesButtonTapped()
     }
     @objc private func chooseLocationsButtonTapped() {
         presenter?.chooseLocationsButtonTapped()
@@ -161,7 +186,20 @@ class CreateGameViewController: UIViewController {
 // MARK: - CreateGameViewProtocol realization
 extension CreateGameViewController: CreateGameViewProtocol {
     func updateUI() {
-        designCustomView()
+        guard let gameSet = presenter?.gameSettings else { return }
+        
+        choosePlayersAmountInGameView.descriptionLabel.text =  String(gameSet.playerAmmount)
+        chooseSpyAmountInGameView.descriptionLabel.text =  String(gameSet.spyAmmount)
+        timeDuringInGameView.descriptionLabel.text =  String(gameSet.timeDuring) + " мин"
+        switch gameSet.roles {
+        case true:
+            rolePlayView.descriptionLabel.text =  "да"
+            rulesButton.setImage(UIImage(named: "YesAction"), for: .normal)
+        case false:
+            rolePlayView.descriptionLabel.text =  "нет"
+            rulesButton.setImage(UIImage(named: "NoAction"), for: .normal)
+        }
+        chooseLocationAmountInGameView.descriptionLabel.text =  String(gameSet.locations.count)
     }
     
 }
