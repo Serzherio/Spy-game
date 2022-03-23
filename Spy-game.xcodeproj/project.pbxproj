@@ -24,6 +24,7 @@
 		D5F7FB0727E9EFA000A96110 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FB0627E9EFA000A96110 /* RulesViewController.swift */; };
 		D5F7FB0D27E9F02F00A96110 /* RulesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FB0C27E9F02F00A96110 /* RulesPresenter.swift */; };
 		D5F7FB0F27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FB0E27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift */; };
+		D5F7FB1227EA5FEA00A96110 /* GameSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FB1127EA5FEA00A96110 /* GameSettingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		D5F7FB0627E9EFA000A96110 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		D5F7FB0C27E9F02F00A96110 /* RulesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesPresenter.swift; sourceTree = "<group>"; };
 		D5F7FB0E27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithLabelAndButtons.swift; sourceTree = "<group>"; };
+		D5F7FB1127EA5FEA00A96110 /* GameSettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		D5F7FB0327E9C81200A96110 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D5F7FB1127EA5FEA00A96110 /* GameSettingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				D51D76F227E8792400BE01F7 /* Router.swift in Sources */,
 				D51D76CD27E77A9B00BE01F7 /* StartViewController.swift in Sources */,
 				D51D76E727E794E100BE01F7 /* LabelExtension.swift in Sources */,
+				D5F7FB1227EA5FEA00A96110 /* GameSettingModel.swift in Sources */,
 				D5F7FAFF27E9C79A00A96110 /* CreateGameViewController.swift in Sources */,
 				D51D76ED27E86CD900BE01F7 /* FontExtensions.swift in Sources */,
 				D5F7FB0527E9C8BF00A96110 /* CreateGamePresenter.swift in Sources */,

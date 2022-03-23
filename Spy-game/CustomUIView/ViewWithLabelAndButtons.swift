@@ -11,7 +11,6 @@ class ViewWithLabelAndButtons: UIView {
     
     init(headLabel: UILabel, descriptionLabel: UILabel, buttons: [UIButton]){
         super.init(frame: .zero)
-        
         self.translatesAutoresizingMaskIntoConstraints = false
         headLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
