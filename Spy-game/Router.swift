@@ -18,6 +18,9 @@ protocol RouterProtocol: RouterMain {
     func showCreateGameController()
     func showRulesController()
     func showDonateController()
+    func showLocationController(gameSetting: GameSetting)
+    func showStartGameController(gameSetting: GameSetting)
+    func popVC()
     func popToRoot()
 }
 
@@ -52,9 +55,31 @@ class Router: RouterProtocol {
         }
     }
     
+    func showLocationController(gameSetting: GameSetting) {
+        if let navigationController = navigationController {
+            guard let locationVC = moduleBuilder?.createLocationModule(router: self, gameSetting: gameSetting) else {return}
+            navigationController.pushViewController(locationVC, animated: true)
+        }
+    }
+    func showStartGameController(gameSetting: GameSetting) {
+        if let navigationController = navigationController {
+            guard let startGameVC = moduleBuilder?.createStartGameModule(router: self, gameSetting: gameSetting) else {return}
+            navigationController.pushViewController(startGameVC, animated: true)
+        }
+    }
+    
+    
     func showDonateController() {
         
     }
+    
+    func popVC() {
+        if let navigationController = navigationController {
+            navigationController.popViewController(animated: true)
+        }
+    }
+    
+    
     
     func popToRoot() {
         

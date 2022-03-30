@@ -19,6 +19,11 @@
 		D51D76EF27E8739200BE01F7 /* StartScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D76EE27E8739200BE01F7 /* StartScreenPresenter.swift */; };
 		D51D76F227E8792400BE01F7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D76F127E8792400BE01F7 /* Router.swift */; };
 		D51D76F427E8795900BE01F7 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D76F327E8795900BE01F7 /* ModuleBuilder.swift */; };
+		D55CF48727F46539007C7196 /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55CF48627F46539007C7196 /* StartGameViewController.swift */; };
+		D55CF48B27F46612007C7196 /* StartGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55CF48A27F46612007C7196 /* StartGamePresenter.swift */; };
+		D5E178AD27EC75CD001E3268 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E178AC27EC75CD001E3268 /* LocationsViewController.swift */; };
+		D5E178B127EC7686001E3268 /* LocationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E178B027EC7686001E3268 /* LocationsPresenter.swift */; };
+		D5E178B427F38593001E3268 /* myCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E178B327F38593001E3268 /* myCell.swift */; };
 		D5F7FAFF27E9C79A00A96110 /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FAFE27E9C79A00A96110 /* CreateGameViewController.swift */; };
 		D5F7FB0527E9C8BF00A96110 /* CreateGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FB0427E9C8BF00A96110 /* CreateGamePresenter.swift */; };
 		D5F7FB0727E9EFA000A96110 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FB0627E9EFA000A96110 /* RulesViewController.swift */; };
@@ -42,6 +47,11 @@
 		D51D76EE27E8739200BE01F7 /* StartScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenPresenter.swift; sourceTree = "<group>"; };
 		D51D76F127E8792400BE01F7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D51D76F327E8795900BE01F7 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		D55CF48627F46539007C7196 /* StartGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
+		D55CF48A27F46612007C7196 /* StartGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGamePresenter.swift; sourceTree = "<group>"; };
+		D5E178AC27EC75CD001E3268 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		D5E178B027EC7686001E3268 /* LocationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsPresenter.swift; sourceTree = "<group>"; };
+		D5E178B327F38593001E3268 /* myCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myCell.swift; sourceTree = "<group>"; };
 		D5F7FAFE27E9C79A00A96110 /* CreateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
 		D5F7FB0427E9C8BF00A96110 /* CreateGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGamePresenter.swift; sourceTree = "<group>"; };
 		D5F7FB0627E9EFA000A96110 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
@@ -84,7 +94,9 @@
 				D51D76F127E8792400BE01F7 /* Router.swift */,
 				D51D76DC27E77C6400BE01F7 /* StartScreenModule */,
 				D5F7FB0127E9C7E800A96110 /* CreateGameScreenModule */,
+				D5E178AF27EC766B001E3268 /* LocationsModule */,
 				D5F7FB0927E9EFB000A96110 /* RulesScreenModule */,
+				D55CF48927F465B8007C7196 /* StartGameModule */,
 				D5F7FB1027E9FEC100A96110 /* CustomUIView */,
 				D51D76EA27E8636000BE01F7 /* UIKitExtensions */,
 				D51D76F027E8783A00BE01F7 /* SupportingFiles */,
@@ -146,6 +158,57 @@
 				D51D76D127E77A9D00BE01F7 /* Assets.xcassets */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		D55CF48827F465A2007C7196 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D55CF48627F46539007C7196 /* StartGameViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D55CF48927F465B8007C7196 /* StartGameModule */ = {
+			isa = PBXGroup;
+			children = (
+				D55CF48827F465A2007C7196 /* View */,
+				D55CF48C27F46621007C7196 /* Presenter */,
+			);
+			path = StartGameModule;
+			sourceTree = "<group>";
+		};
+		D55CF48C27F46621007C7196 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D55CF48A27F46612007C7196 /* StartGamePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D5E178AE27EC7664001E3268 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5E178AC27EC75CD001E3268 /* LocationsViewController.swift */,
+				D5E178B327F38593001E3268 /* myCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5E178AF27EC766B001E3268 /* LocationsModule */ = {
+			isa = PBXGroup;
+			children = (
+				D5E178AE27EC7664001E3268 /* View */,
+				D5E178B227EC76AC001E3268 /* Presenter */,
+			);
+			path = LocationsModule;
+			sourceTree = "<group>";
+		};
+		D5E178B227EC76AC001E3268 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D5E178B027EC7686001E3268 /* LocationsPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		D5F7FB0027E9C7E100A96110 /* View */ = {
@@ -295,9 +358,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D51D76F227E8792400BE01F7 /* Router.swift in Sources */,
+				D5E178B427F38593001E3268 /* myCell.swift in Sources */,
 				D51D76CD27E77A9B00BE01F7 /* StartViewController.swift in Sources */,
+				D55CF48B27F46612007C7196 /* StartGamePresenter.swift in Sources */,
 				D51D76E727E794E100BE01F7 /* LabelExtension.swift in Sources */,
+				D5E178B127EC7686001E3268 /* LocationsPresenter.swift in Sources */,
+				D5E178AD27EC75CD001E3268 /* LocationsViewController.swift in Sources */,
 				D5F7FB1227EA5FEA00A96110 /* GameSettingModel.swift in Sources */,
+				D55CF48727F46539007C7196 /* StartGameViewController.swift in Sources */,
 				D5F7FAFF27E9C79A00A96110 /* CreateGameViewController.swift in Sources */,
 				D51D76ED27E86CD900BE01F7 /* FontExtensions.swift in Sources */,
 				D5F7FB0527E9C8BF00A96110 /* CreateGamePresenter.swift in Sources */,

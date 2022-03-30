@@ -10,7 +10,7 @@ import UIKit
 class CreateGameViewController: UIViewController {
     
     //UI elements
-    var titleSettingLabel = UILabel(textLabel: "Настройки игры", font: .noteworthy50()!)
+    var titleSettingLabel = UILabel(textLabel: "Настройки игры", font: .noteworthy50())
     let continueButton = UIButton(title: "Продолжить", titleColor: .black, backgroundColor: .white, font: .noteworthy30(), isShadow: true, cornerRadius: 40)
     let minusButtonForPlayersAmmount = UIButton(type: .system)
     let plusButtonForPlayersAmmount = UIButton(type: .system)
@@ -25,25 +25,25 @@ class CreateGameViewController: UIViewController {
     var presenter: CreateGamePresenterProtocol?
 
     // custom UI elements
-    var choosePlayersAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Игроки:", font: .noteworthy24()!),
+    var choosePlayersAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Игроки:", font: .noteworthy24()),
                                                                 descriptionLabel: UILabel(textLabel: "",
-                                                                font: .noteworthy24()!),
+                                                                font: .noteworthy24()),
                                                                 buttons: [])
-    var chooseSpyAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Шпионы:", font: .noteworthy24()!),
+    var chooseSpyAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Шпионы:", font: .noteworthy24()),
                                                                 descriptionLabel: UILabel(textLabel: "",
-                                                                font: .noteworthy24()!),
+                                                                font: .noteworthy24()),
                                                                 buttons: [])
-    var timeDuringInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Время:", font: .noteworthy24()!),
+    var timeDuringInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Время:", font: .noteworthy24()),
                                                                 descriptionLabel: UILabel(textLabel: "",
-                                                                font: .noteworthy24()!),
+                                                                font: .noteworthy24()),
                                                                 buttons: [])
-    var rolePlayView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Роли:", font: .noteworthy24()!),
+    var rolePlayView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Роли:", font: .noteworthy24()),
                                                                 descriptionLabel: UILabel(textLabel: "",
-                                                                font: .noteworthy24()!),
+                                                                font: .noteworthy24()),
                                                                 buttons: [])
-    var chooseLocationAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Локации:", font: .noteworthy24()!),
+    var chooseLocationAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Локации:", font: .noteworthy24()),
                                                                 descriptionLabel: UILabel(textLabel: "",
-                                                                font: .noteworthy24()!),
+                                                                font: .noteworthy24()),
                                                                 buttons: [])
     
     
@@ -54,6 +54,11 @@ class CreateGameViewController: UIViewController {
 
         designButtons()
         layoutDesign()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateView()
     }
     
     
@@ -75,6 +80,7 @@ class CreateGameViewController: UIViewController {
         plusButtonForDuringTime.addTarget(self, action: #selector(plusButtonForDuringTimeTapped), for: .touchUpInside)
         rulesButton.addTarget(self, action: #selector(rulesButtonTapped), for: .touchUpInside)
         chooseLocationsButton.addTarget(self, action: #selector(chooseLocationsButtonTapped), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
     }
     
 
@@ -83,8 +89,8 @@ class CreateGameViewController: UIViewController {
     
     
     private func createCustomSettingView(headLabelText: String, descriptionLabelText: String, buttons: [UIButton]) -> UIView {
-        let headLabel = UILabel(textLabel: headLabelText, font: .noteworthy24()!)
-        let descriptionLabel = UILabel(textLabel: descriptionLabelText, font: .noteworthy24()!)
+        let headLabel = UILabel(textLabel: headLabelText, font: .noteworthy24())
+        let descriptionLabel = UILabel(textLabel: descriptionLabelText, font: .noteworthy24())
         let customView = ViewWithLabelAndButtons(headLabel: headLabel, descriptionLabel: descriptionLabel, buttons: buttons)
         return customView
     }
@@ -92,31 +98,31 @@ class CreateGameViewController: UIViewController {
     private func layoutDesign() {
         guard let gameSet = presenter?.gameSettings else { return }
         
-        choosePlayersAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Игроки:", font: .noteworthy24()!),
+        choosePlayersAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Игроки:", font: .noteworthy24()),
                                                                 descriptionLabel: UILabel(textLabel: String(gameSet.playerAmmount),
-                                                                font: .noteworthy24()!),
+                                                                font: .noteworthy24()),
                                                                 buttons: [minusButtonForPlayersAmmount, plusButtonForPlayersAmmount])
-        chooseSpyAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Шпионы:", font: .noteworthy24()!),
+        chooseSpyAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Шпионы:", font: .noteworthy24()),
                                                             descriptionLabel: UILabel(textLabel: String(gameSet.spyAmmount),
-                                                            font: .noteworthy24()!),
+                                                            font: .noteworthy24()),
                                                             buttons: [minusButtonForSpyAmmount, plusButtonForSpyAmmount])
-        timeDuringInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Время:", font: .noteworthy24()!),
+        timeDuringInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Время:", font: .noteworthy24()),
                                                        descriptionLabel: UILabel(textLabel: String(gameSet.timeDuring) + " мин",
-                                                       font: .noteworthy24()!),
+                                                       font: .noteworthy24()),
                                                        buttons: [minusButtonForDuringTime, plusButtonForDuringTime])
         switch gameSet.roles {
         case true:
-            rolePlayView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Роли:", font: .noteworthy24()!),
-                                                   descriptionLabel: UILabel(textLabel: "да", font: .noteworthy24()!),
+            rolePlayView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Роли:", font: .noteworthy24()),
+                                                   descriptionLabel: UILabel(textLabel: "да", font: .noteworthy24()),
                                                    buttons: [rulesButton])
         case false:
-            rolePlayView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Роли:", font: .noteworthy24()!),
-                                                   descriptionLabel: UILabel(textLabel: "нет", font: .noteworthy24()!),
+            rolePlayView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Роли:", font: .noteworthy24()),
+                                                   descriptionLabel: UILabel(textLabel: "нет", font: .noteworthy24()),
                                                    buttons: [rulesButton])
         }
 
-        chooseLocationAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Локации:", font: .noteworthy24()!),
-                                                                 descriptionLabel: UILabel(textLabel: String(gameSet.locations.count), font: .noteworthy24()!),
+        chooseLocationAmountInGameView = ViewWithLabelAndButtons(headLabel: UILabel(textLabel: "Локации:", font: .noteworthy24()),
+                                                                 descriptionLabel: UILabel(textLabel: String(gameSet.selectedLocations.count), font: .noteworthy24()),
                                                                  buttons: [chooseLocationsButton])
 
         let stackView = UIStackView(arrangedSubviews: [ choosePlayersAmountInGameView,
@@ -151,6 +157,23 @@ class CreateGameViewController: UIViewController {
         ])
     }
     
+    private func updateView() {
+        guard let gameSet = presenter?.gameSettings else { return }
+        
+        choosePlayersAmountInGameView.descriptionLabel.text =  String(gameSet.playerAmmount)
+        chooseSpyAmountInGameView.descriptionLabel.text =  String(gameSet.spyAmmount)
+        timeDuringInGameView.descriptionLabel.text =  String(gameSet.timeDuring) + " мин"
+        switch gameSet.roles {
+        case true:
+            rolePlayView.descriptionLabel.text =  "да"
+            rulesButton.setImage(UIImage(named: "YesAction"), for: .normal)
+        case false:
+            rolePlayView.descriptionLabel.text =  "нет"
+            rulesButton.setImage(UIImage(named: "NoAction"), for: .normal)
+        }
+        chooseLocationAmountInGameView.descriptionLabel.text =  String(gameSet.selectedLocations.count)
+    }
+    
     
     //MARK: - UIActions
     @objc private func minusButtonForPlayersAmmountTapped() {
@@ -177,6 +200,9 @@ class CreateGameViewController: UIViewController {
     @objc private func chooseLocationsButtonTapped() {
         presenter?.chooseLocationsButtonTapped()
     }
+    @objc private func continueButtonTapped() {
+        presenter?.continueButtonTapped()
+    }
     
     
     
@@ -186,20 +212,7 @@ class CreateGameViewController: UIViewController {
 // MARK: - CreateGameViewProtocol realization
 extension CreateGameViewController: CreateGameViewProtocol {
     func updateUI() {
-        guard let gameSet = presenter?.gameSettings else { return }
-        
-        choosePlayersAmountInGameView.descriptionLabel.text =  String(gameSet.playerAmmount)
-        chooseSpyAmountInGameView.descriptionLabel.text =  String(gameSet.spyAmmount)
-        timeDuringInGameView.descriptionLabel.text =  String(gameSet.timeDuring) + " мин"
-        switch gameSet.roles {
-        case true:
-            rolePlayView.descriptionLabel.text =  "да"
-            rulesButton.setImage(UIImage(named: "YesAction"), for: .normal)
-        case false:
-            rolePlayView.descriptionLabel.text =  "нет"
-            rulesButton.setImage(UIImage(named: "NoAction"), for: .normal)
-        }
-        chooseLocationAmountInGameView.descriptionLabel.text =  String(gameSet.locations.count)
+        updateView()
     }
     
 }

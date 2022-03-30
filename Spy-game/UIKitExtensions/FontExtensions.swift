@@ -11,13 +11,13 @@ import UIKit
 // font - Noteworthy, size - 30
 // font - Noteworthy, size - 24
 extension UIFont {
-    static func noteworthy50() -> UIFont? {
-        return self.init(name: "Noteworthy", size: 50)
+    static func noteworthy50() -> UIFont {
+        return self.init(name: "Noteworthy", size: 50)!
     }
-    static func noteworthy30() -> UIFont? {
-        return self.init(name: "Noteworthy", size: 30)
+    static func noteworthy30() -> UIFont {
+        return self.init(name: "Noteworthy", size: 30)!
     }
-    static func noteworthy24() -> UIFont? {
-        return self.init(name: "Noteworthy", size: 24)
+    static func noteworthy24() -> UIFont {
+        return self.init(name: "Noteworthy", size: 24)!
     }
 }

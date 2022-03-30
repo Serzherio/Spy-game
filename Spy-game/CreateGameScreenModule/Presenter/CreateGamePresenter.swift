@@ -24,6 +24,7 @@ protocol CreateGamePresenterProtocol: class {
     func plusButtonForDuringTimeTapped()
     func rulesButtonTapped()
     func chooseLocationsButtonTapped()
+    func continueButtonTapped()
     
 }
 
@@ -38,32 +39,74 @@ class CreateGamePresenter: CreateGamePresenterProtocol {
     }
     
     func minusButtonForPlayersAmmountTapped() {
-        gameSettings.playerAmmount -= 1
+        if gameSettings.playerAmmount > gameSettings.spyAmmount {
+            if gameSettings.playerAmmount == 3 {
+                gameSettings.playerAmmount = 3
+            } else {
+                gameSettings.playerAmmount -= 1
+            }
+        } else {
+            if gameSettings.playerAmmount == 3 {
+                gameSettings.playerAmmount = 3
+            } else {
+                gameSettings.playerAmmount -= 1
+                gameSettings.spyAmmount = gameSettings.playerAmmount
+            }
+        }
         view?.updateUI()
     }
     
     func plusButtonForPlayersAmmountTapped() {
-        gameSettings.playerAmmount += 1
+        if gameSettings.playerAmmount == 20 {
+            gameSettings.playerAmmount = 20
+        } else {
+            gameSettings.playerAmmount += 1
+        }
         view?.updateUI()
     }
     
     func minusButtonForSpyAmmountTapped() {
-        gameSettings.spyAmmount -= 1
+        if gameSettings.spyAmmount == 1 {
+            gameSettings.spyAmmount = 1
+        } else {
+            gameSettings.spyAmmount -= 1
+        }
         view?.updateUI()
     }
     
     func plusButtonForSpyAmmountTapped() {
-        gameSettings.spyAmmount += 1
+        if gameSettings.spyAmmount < gameSettings.playerAmmount {
+            if gameSettings.spyAmmount == 20 {
+                gameSettings.spyAmmount = 20
+            } else {
+                gameSettings.spyAmmount += 1
+            }
+        } else {
+            if gameSettings.spyAmmount == 20 {
+                gameSettings.spyAmmount = 20
+            } else {
+                gameSettings.spyAmmount += 1
+                gameSettings.playerAmmount = gameSettings.spyAmmount
+            }
+        }
         view?.updateUI()
     }
     
     func minusButtonForDuringTimeTapped() {
-        gameSettings.timeDuring -= 1
+        if gameSettings.timeDuring == 1 {
+            gameSettings.timeDuring = 1
+        } else {
+            gameSettings.timeDuring -= 1
+        }
         view?.updateUI()
     }
     
     func plusButtonForDuringTimeTapped() {
-        gameSettings.timeDuring += 1
+        if gameSettings.timeDuring == 20 {
+            gameSettings.timeDuring = 20
+        } else {
+            gameSettings.timeDuring += 1
+        }
         view?.updateUI()
     }
     
@@ -77,6 +120,11 @@ class CreateGamePresenter: CreateGamePresenterProtocol {
     }
     
     func chooseLocationsButtonTapped() {
+        router?.showLocationController(gameSetting: gameSettings)
+    }
+    
+    func continueButtonTapped() {
+        router?.showStartGameController(gameSetting: gameSettings)
     }
     
 }
