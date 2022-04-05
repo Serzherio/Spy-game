@@ -12,11 +12,13 @@ protocol ModuleBuilderProtocol: class {
     func createGameModule(router: RouterProtocol) -> UIViewController
     func createRulesModule(router: RouterProtocol) -> UIViewController
     func createLocationModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
-    func createStartGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
+    func createAddPlayersModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
+    func createSpyGameMainModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
+    func createTimerGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
 }
 
 class ModuleBuilder: ModuleBuilderProtocol {
-  
+
     func createStartScreenModule(router: RouterProtocol) -> UIViewController {
         let view = StartViewController()
         let presenter = StartScreenPresenter(view: view, router: router)
@@ -44,11 +46,29 @@ class ModuleBuilder: ModuleBuilderProtocol {
         view.presenter = presenter
         return view
     }
-    func createStartGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController {
-        let view = StartGameViewController()
-        let presenter = StartGamePresenter(view: view, router: router, gameSetting: gameSetting)
+    
+    func createAddPlayersModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController {
+        let view = AddPlayersViewController()
+        let presenter = AddPlayersPresenter(view: view, router: router, gameSettings: gameSetting)
         view.presenter = presenter
         return view
     }
+    
+
+    
+    func createSpyGameMainModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController {
+        let view = SpyGameViewController()
+        let presenter = SpyGamePresenter(view: view, router: router, gameSetting: gameSetting)
+        view.presenter = presenter
+        return view
+    }
+    
+    func createTimerGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController {
+        let view = TimerViewController()
+        let presenter = TimerPresenter(router: router, view: view, gameSetting: gameSetting )
+        view.presenter = presenter
+        return view
+    }
+    
     
 }

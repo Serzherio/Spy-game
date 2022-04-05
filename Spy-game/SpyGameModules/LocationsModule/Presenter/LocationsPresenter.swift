@@ -15,7 +15,7 @@ protocol LocationViewProtocol: class {
 protocol LocationPresenterProtocol: class {
     var gameSetting: GameSetting {get set}
     init(view: LocationViewProtocol, router: RouterProtocol, gameSetting: GameSetting)
-    func selectLocation(index: Int)
+    func selectLocation(location: String)
     func saveButtonPressed()
 }
 
@@ -31,16 +31,25 @@ class LocationPresenter: LocationPresenterProtocol {
         self.router = router
     }
     
-    func selectLocation(index: Int) {
-        let newLocation = gameSetting.locations[index]
-        if !gameSetting.selectedLocations.contains(newLocation) {
-            gameSetting.selectedLocations.append(newLocation)
+    func selectLocation(location: String) {
+        
+        if !gameSetting.selectedLocations.contains(location) {
+            gameSetting.selectedLocations.append(location)
         } else {
-            guard let removeIndex = gameSetting.selectedLocations.firstIndex(of: newLocation) else {return}
+            guard let removeIndex = gameSetting.selectedLocations.firstIndex(of: location) else {return}
             gameSetting.selectedLocations.remove(at: removeIndex)
         }
-        print(gameSetting.selectedLocations)
         view?.updateUI()
+        
+//        let newLocation = gameSetting.locations[index]
+//        if !gameSetting.selectedLocations.contains(newLocation) {
+//            gameSetting.selectedLocations.append(newLocation)
+//        } else {
+//            guard let removeIndex = gameSetting.selectedLocations.firstIndex(of: newLocation) else {return}
+//            gameSetting.selectedLocations.remove(at: removeIndex)
+//        }
+//        print(gameSetting.selectedLocations)
+//        view?.updateUI()
     }
     
     func saveButtonPressed() {

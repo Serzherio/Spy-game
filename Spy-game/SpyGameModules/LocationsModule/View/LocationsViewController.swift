@@ -78,23 +78,31 @@ class LocationsViewController: UIViewController {
 extension LocationsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter?.gameSetting.locations.count ?? 0
+        return presenter?.gameSetting.locations.keys.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let locationKeys = presenter?.gameSetting.locations.keys
+        let locationTextArray = Array(locationKeys!)
+        
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! MyCell
         myCell.backgroundColor = .red
-        myCell.title.text = presenter?.gameSetting.locations[indexPath.row]
-        
-        for selectedLocations in presenter!.gameSetting.selectedLocations {
-            if myCell.title.text == selectedLocations {
+        myCell.title.text  = locationTextArray[indexPath.row]
+
+        for i in presenter!.gameSetting.selectedLocations {
+            if myCell.title.text == i {
                 myCell.backgroundColor = .green
             }
         }
-        return myCell
+    return myCell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter?.selectLocation(index: indexPath.row)
+        let locationKeys = presenter?.gameSetting.locations.keys
+        let locationTextArray = Array(locationKeys!)
+        let selectedLocation = locationTextArray[indexPath.row]
+        presenter?.selectLocation(location: selectedLocation)
+        
     }
     
 }

@@ -19,13 +19,15 @@ protocol RouterProtocol: RouterMain {
     func showRulesController()
     func showDonateController()
     func showLocationController(gameSetting: GameSetting)
-    func showStartGameController(gameSetting: GameSetting)
+    func showAddPlayersController(gameSetting: GameSetting)
+    func showSpyGameController(gameSetting: GameSetting)
+    func showTimerController(gameSetting: GameSetting)
     func popVC()
     func popToRoot()
 }
 
 class Router: RouterProtocol {
-    
+
     var navigationController: UINavigationController?
     var moduleBuilder: ModuleBuilderProtocol?
     
@@ -61,12 +63,29 @@ class Router: RouterProtocol {
             navigationController.pushViewController(locationVC, animated: true)
         }
     }
-    func showStartGameController(gameSetting: GameSetting) {
+    
+    func showAddPlayersController(gameSetting: GameSetting) {
         if let navigationController = navigationController {
-            guard let startGameVC = moduleBuilder?.createStartGameModule(router: self, gameSetting: gameSetting) else {return}
-            navigationController.pushViewController(startGameVC, animated: true)
+            guard let addPlayersVC = moduleBuilder?.createAddPlayersModule(router: self, gameSetting: gameSetting) else {return}
+            navigationController.pushViewController(addPlayersVC, animated: true)
         }
     }
+    
+    func showSpyGameController(gameSetting: GameSetting) {
+        if let navigationController = navigationController {
+            guard let spyGameVC = moduleBuilder?.createSpyGameMainModule(router: self, gameSetting: gameSetting) else {return}
+            navigationController.pushViewController(spyGameVC, animated: true)
+        }
+    }
+    
+    func showTimerController(gameSetting: GameSetting) {
+        if let navigationController = navigationController {
+            guard let timerVC = moduleBuilder?.createTimerGameModule(router: self, gameSetting: gameSetting) else {return}
+            navigationController.pushViewController(timerVC, animated: true)
+        }
+    }
+    
+
     
     
     func showDonateController() {

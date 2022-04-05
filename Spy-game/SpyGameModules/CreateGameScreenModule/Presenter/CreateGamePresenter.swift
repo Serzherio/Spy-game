@@ -124,7 +124,7 @@ class CreateGamePresenter: CreateGamePresenterProtocol {
     }
     
     func continueButtonTapped() {
-        router?.showStartGameController(gameSetting: gameSettings)
+        router?.showAddPlayersController(gameSetting: gameSettings)
     }
     
 }
