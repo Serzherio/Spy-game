@@ -14,7 +14,7 @@ class SpyGameViewController: UIViewController {
     let playerName = UILabel(textLabel: "", font: .noteworthy50())
     
     let nextPlayerButton = UIButton(title: "Я готов!", titleColor: .black, backgroundColor: .white, font: .noteworthy30(), isShadow: true, cornerRadius: 40)
-    var logo = UIImageView(image: UIImage(named: "SpyLogoImage"))
+    var logo = UIImageView(image: UIImage(named: "Timer"))
     
     var presenter: SpyGamePresenterProtocol?
     let textPreset = Text()

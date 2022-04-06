@@ -8,12 +8,12 @@
 import Foundation
 
 class GameSetting {
-    var playerAmmount: Int = 6
-    var spyAmmount: Int = 2
+    var playerAmmount: Int = 4
+    var spyAmmount: Int = 1
     var timeDuring: Int = 5
     var roles: Bool = false
     var selectedLocations: [String] = ["Базовые"]
-    var players: [String] = ["Юля", "Юса", "Я", "Сергей","Серж", "Юпса"]
+    var players: [String] = ["Юля", "Юса", "Я", "Сергей"]
     var locations : [String:[String]] = ["Базовые":Locations().main, "18+":Locations().sex]
 }
 

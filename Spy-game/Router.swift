@@ -22,6 +22,7 @@ protocol RouterProtocol: RouterMain {
     func showAddPlayersController(gameSetting: GameSetting)
     func showSpyGameController(gameSetting: GameSetting)
     func showTimerController(gameSetting: GameSetting)
+    func showSpyWinController(gameSetting: GameSetting)
     func popVC()
     func popToRoot()
 }
@@ -84,6 +85,14 @@ class Router: RouterProtocol {
             navigationController.pushViewController(timerVC, animated: true)
         }
     }
+    func showSpyWinController(gameSetting: GameSetting) {
+        if let navigationController = navigationController {
+            guard let spyWinVC = moduleBuilder?.createSpyWinGameModule(router: self, gameSetting: gameSetting) else {return}
+            navigationController.pushViewController(spyWinVC, animated: true)
+        }
+    }
+    
+    
     
 
     

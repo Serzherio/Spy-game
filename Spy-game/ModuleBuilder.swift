@@ -15,6 +15,7 @@ protocol ModuleBuilderProtocol: class {
     func createAddPlayersModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
     func createSpyGameMainModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
     func createTimerGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
+    func createSpyWinGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
 }
 
 class ModuleBuilder: ModuleBuilderProtocol {
@@ -66,6 +67,13 @@ class ModuleBuilder: ModuleBuilderProtocol {
     func createTimerGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController {
         let view = TimerViewController()
         let presenter = TimerPresenter(router: router, view: view, gameSetting: gameSetting )
+        view.presenter = presenter
+        return view
+    }
+    
+    func createSpyWinGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController {
+        let view = SpyWinViewController()
+        let presenter = SpyWinPresenter(router: router, view: view, gameSetting: gameSetting)
         view.presenter = presenter
         return view
     }

@@ -37,6 +37,8 @@
 		D5F7FB1227EA5FEA00A96110 /* GameSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7FB1127EA5FEA00A96110 /* GameSettingModel.swift */; };
 		D5FBE26327FCDAA90034024A /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FBE26227FCDAA90034024A /* TimerViewController.swift */; };
 		D5FBE26527FCDAF40034024A /* TimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FBE26427FCDAF40034024A /* TimerPresenter.swift */; };
+		D5FBE26A27FE28800034024A /* SpyWinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FBE26927FE28800034024A /* SpyWinViewController.swift */; };
+		D5FBE26C27FE28A70034024A /* SpyWinPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FBE26B27FE28A70034024A /* SpyWinPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		D5F7FB1127EA5FEA00A96110 /* GameSettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingModel.swift; sourceTree = "<group>"; };
 		D5FBE26227FCDAA90034024A /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		D5FBE26427FCDAF40034024A /* TimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenter.swift; sourceTree = "<group>"; };
+		D5FBE26927FE28800034024A /* SpyWinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyWinViewController.swift; sourceTree = "<group>"; };
+		D5FBE26B27FE28A70034024A /* SpyWinPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyWinPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 				D55CF49127F4E3CB007C7196 /* AddPlayersModule */,
 				D56B601827F9A4BA00446962 /* SpyGameMainModule */,
 				D5FBE26827FCDC310034024A /* TimerGameModule */,
+				D5FBE26F27FE2CAA0034024A /* SpyWinModule */,
 			);
 			path = SpyGameModules;
 			sourceTree = "<group>";
@@ -363,6 +368,31 @@
 			path = TimerGameModule;
 			sourceTree = "<group>";
 		};
+		D5FBE26D27FE2C940034024A /* SpyWinPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				D5FBE26B27FE28A70034024A /* SpyWinPresenter.swift */,
+			);
+			path = SpyWinPresenter;
+			sourceTree = "<group>";
+		};
+		D5FBE26E27FE2CA00034024A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5FBE26927FE28800034024A /* SpyWinViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5FBE26F27FE2CAA0034024A /* SpyWinModule */ = {
+			isa = PBXGroup;
+			children = (
+				D5FBE26E27FE2CA00034024A /* View */,
+				D5FBE26D27FE2C940034024A /* SpyWinPresenter */,
+			);
+			path = SpyWinModule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -456,11 +486,13 @@
 				D51D76E927E7958D00BE01F7 /* ButtonExtension.swift in Sources */,
 				D56B602027FA3E0900446962 /* TextsForTitle.swift in Sources */,
 				D5F7FB0D27E9F02F00A96110 /* RulesPresenter.swift in Sources */,
+				D5FBE26A27FE28800034024A /* SpyWinViewController.swift in Sources */,
 				D5F7FB0727E9EFA000A96110 /* RulesViewController.swift in Sources */,
 				D5FBE26527FCDAF40034024A /* TimerPresenter.swift in Sources */,
 				D51D76CB27E77A9B00BE01F7 /* SceneDelegate.swift in Sources */,
 				D55CF49927F4EAF9007C7196 /* CustomCell.swift in Sources */,
 				D5F7FB0F27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift in Sources */,
+				D5FBE26C27FE28A70034024A /* SpyWinPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
