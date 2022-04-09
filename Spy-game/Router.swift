@@ -21,8 +21,10 @@ protocol RouterProtocol: RouterMain {
     func showLocationController(gameSetting: GameSetting)
     func showAddPlayersController(gameSetting: GameSetting)
     func showSpyGameController(gameSetting: GameSetting)
-    func showTimerController(gameSetting: GameSetting)
-    func showSpyWinController(gameSetting: GameSetting)
+    func showTimerController(gameSetting: GameSetting, spyPlayers: [String])
+    func showSpyWinController(gameSetting: GameSetting, spyPlayers: [String])
+    func showStopTimerController(gameSetting: GameSetting, spyPlayers: [String])
+    func showEndGameController(gameSetting: GameSetting, spyPlayers: [String])
     func popVC()
     func popToRoot()
 }
@@ -79,16 +81,29 @@ class Router: RouterProtocol {
         }
     }
     
-    func showTimerController(gameSetting: GameSetting) {
+    func showTimerController(gameSetting: GameSetting, spyPlayers: [String]) {
         if let navigationController = navigationController {
-            guard let timerVC = moduleBuilder?.createTimerGameModule(router: self, gameSetting: gameSetting) else {return}
+            guard let timerVC = moduleBuilder?.createTimerGameModule(router: self, gameSetting: gameSetting, spyPlayers: spyPlayers) else {return}
             navigationController.pushViewController(timerVC, animated: true)
         }
     }
-    func showSpyWinController(gameSetting: GameSetting) {
+    func showSpyWinController(gameSetting: GameSetting, spyPlayers: [String]) {
         if let navigationController = navigationController {
-            guard let spyWinVC = moduleBuilder?.createSpyWinGameModule(router: self, gameSetting: gameSetting) else {return}
+            guard let spyWinVC = moduleBuilder?.createSpyWinGameModule(router: self, gameSetting: gameSetting, spyPlayers: spyPlayers) else {return}
             navigationController.pushViewController(spyWinVC, animated: true)
+        }
+    }
+    func showStopTimerController(gameSetting: GameSetting, spyPlayers: [String]) {
+        if let navigationController = navigationController {
+            guard let stopTimerVC = moduleBuilder?.createStopTimerController(router: self, gameSetting: gameSetting, spyPlayers: spyPlayers) else {return}
+            navigationController.pushViewController(stopTimerVC, animated: true)
+        }
+    }
+    
+    func showEndGameController(gameSetting: GameSetting, spyPlayers: [String]) {
+        if let navigationController = navigationController {
+            guard let endGameVC = moduleBuilder?.createEndGameController(router: self, gameSetting: gameSetting, spyPlayers: spyPlayers) else {return}
+            navigationController.pushViewController(endGameVC, animated: true)
         }
     }
     
@@ -110,7 +125,9 @@ class Router: RouterProtocol {
     
     
     func popToRoot() {
-        
+        if let navigationController = navigationController {
+            navigationController.popToRootViewController(animated: true)
+        }
     }
 
     

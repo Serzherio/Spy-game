@@ -11,7 +11,7 @@ import Foundation
 protocol SpyGameViewProtocol: class {
     func updateUI()
     func prepareToShowNextPlayer(player: String)
-    func showNextPlayerOnScreen(location: String, isRolePlay: Bool, player: Dictionary<String,Bool>.Element)
+    func showNextPlayerOnScreen(randomSelectedLocation: String, location: String, isRolePlay: Bool, player: Dictionary<String,Bool>.Element)
 }
 
 protocol SpyGamePresenterProtocol: class {
@@ -29,7 +29,10 @@ class SpyGamePresenter: SpyGamePresenterProtocol {
     var players:[Dictionary<String,Bool>.Element] = []
     var playersCounter: Int
     var locationForGame: String = ""
+    var spyPlayersArray: [String] = []
     var prepareForShowPlayerRoleFlag: Bool = true
+    var randomSelectedLocation: String = ""
+    
     
     required init(view: SpyGameViewProtocol, router: RouterProtocol, gameSetting: GameSetting) {
         self.view = view
@@ -43,7 +46,7 @@ class SpyGamePresenter: SpyGamePresenterProtocol {
     
     private func setRandomLocation() {
         let selectedLocations = gameSetting.selectedLocations
-        guard let randomSelectedLocation = selectedLocations.randomElement() else {return}
+        randomSelectedLocation = selectedLocations.randomElement() ?? "Ошибка"
         guard let locationsForGame = gameSetting.locations[randomSelectedLocation] else {return}
         locationForGame = locationsForGame.randomElement() ?? "Ошибка"
         
@@ -52,14 +55,14 @@ class SpyGamePresenter: SpyGamePresenterProtocol {
     private func setRandomSpyInPlayers() {
         var allPlayersDictionary: [String: Bool] = [:]
         var playersArray = gameSetting.players
-        var spyArray: [String] = []
+//        var spyArray: [String] = []
         for _ in 1...gameSetting.spyAmmount {
             guard let spy = playersArray.randomElement() else {return}
-            spyArray.append(spy)
+            spyPlayersArray.append(spy)
             playersArray.remove(at: playersArray.firstIndex(of: spy)!)
         }
         let playersDictionary = Dictionary(grouping: playersArray) { $0 }.mapValues { _ in false }
-        let spyDictionary = Dictionary(grouping: spyArray) { $0 }.mapValues { _ in true }
+        let spyDictionary = Dictionary(grouping: spyPlayersArray) { $0 }.mapValues { _ in true }
         
         allPlayersDictionary.merge(other: playersDictionary)
         allPlayersDictionary.merge(other: spyDictionary)
@@ -73,12 +76,12 @@ class SpyGamePresenter: SpyGamePresenterProtocol {
                 view?.prepareToShowNextPlayer(player: players[playersCounter - 1].key)
                 prepareForShowPlayerRoleFlag = false
             } else {
-                view?.showNextPlayerOnScreen(location: locationForGame, isRolePlay: gameSetting.roles, player: players[playersCounter - 1])
+                view?.showNextPlayerOnScreen(randomSelectedLocation: randomSelectedLocation, location: locationForGame, isRolePlay: gameSetting.roles, player: players[playersCounter - 1])
                 playersCounter -= 1
                 prepareForShowPlayerRoleFlag = true
             }
         } else {
-            router?.showTimerController(gameSetting: gameSetting)
+            router?.showTimerController(gameSetting: gameSetting, spyPlayers: spyPlayersArray)
         }
     
       

@@ -29,7 +29,7 @@ class LocationsViewController: UIViewController {
     
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
         let width = view.frame.width / 2
         layout.itemSize = CGSize(width: width - 40, height: width - 40)
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
@@ -41,7 +41,6 @@ class LocationsViewController: UIViewController {
     
     private func layoutDesign() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-
         tableDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         saveButton.translatesAutoresizingMaskIntoConstraints = false
@@ -84,14 +83,15 @@ extension LocationsViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let locationKeys = presenter?.gameSetting.locations.keys
         let locationTextArray = Array(locationKeys!)
-        
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! MyCell
-        myCell.backgroundColor = .red
+        myCell.backgroundColor = UIColor(red: 214/255, green: 148/255, blue: 148/255, alpha: 1)
+        myCell.image.image = UIImage(named: locationTextArray[indexPath.row])
         myCell.title.text  = locationTextArray[indexPath.row]
+        
 
         for i in presenter!.gameSetting.selectedLocations {
             if myCell.title.text == i {
-                myCell.backgroundColor = .green
+                myCell.backgroundColor = .red
             }
         }
     return myCell

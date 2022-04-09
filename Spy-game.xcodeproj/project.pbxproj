@@ -26,6 +26,10 @@
 		D56B601A27F9A4D100446962 /* SpyGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B601927F9A4D100446962 /* SpyGamePresenter.swift */; };
 		D56B601E27F9F9F200446962 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B601D27F9F9F200446962 /* DictionaryExtension.swift */; };
 		D56B602027FA3E0900446962 /* TextsForTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B601F27FA3E0900446962 /* TextsForTitle.swift */; };
+		D59CCC2C28005126007AFB17 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CCC2B28005126007AFB17 /* EndGameViewController.swift */; };
+		D59CCC2E28005167007AFB17 /* EndGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CCC2D28005167007AFB17 /* EndGamePresenter.swift */; };
+		D5DD7F6827FF660900C3C5B3 /* StopTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DD7F6727FF660900C3C5B3 /* StopTimerViewController.swift */; };
+		D5DD7F6A27FF664200C3C5B3 /* StopTimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DD7F6927FF664200C3C5B3 /* StopTimerPresenter.swift */; };
 		D5E178AD27EC75CD001E3268 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E178AC27EC75CD001E3268 /* LocationsViewController.swift */; };
 		D5E178B127EC7686001E3268 /* LocationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E178B027EC7686001E3268 /* LocationsPresenter.swift */; };
 		D5E178B427F38593001E3268 /* myCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E178B327F38593001E3268 /* myCell.swift */; };
@@ -63,6 +67,10 @@
 		D56B601927F9A4D100446962 /* SpyGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyGamePresenter.swift; sourceTree = "<group>"; };
 		D56B601D27F9F9F200446962 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		D56B601F27FA3E0900446962 /* TextsForTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextsForTitle.swift; sourceTree = "<group>"; };
+		D59CCC2B28005126007AFB17 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
+		D59CCC2D28005167007AFB17 /* EndGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGamePresenter.swift; sourceTree = "<group>"; };
+		D5DD7F6727FF660900C3C5B3 /* StopTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopTimerViewController.swift; sourceTree = "<group>"; };
+		D5DD7F6927FF664200C3C5B3 /* StopTimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopTimerPresenter.swift; sourceTree = "<group>"; };
 		D5E178AC27EC75CD001E3268 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		D5E178B027EC7686001E3268 /* LocationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsPresenter.swift; sourceTree = "<group>"; };
 		D5E178B327F38593001E3268 /* myCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myCell.swift; sourceTree = "<group>"; };
@@ -186,6 +194,8 @@
 				D56B601827F9A4BA00446962 /* SpyGameMainModule */,
 				D5FBE26827FCDC310034024A /* TimerGameModule */,
 				D5FBE26F27FE2CAA0034024A /* SpyWinModule */,
+				D59CCC2A2800504B007AFB17 /* VotingModule */,
+				D59CCC31280052D7007AFB17 /* EndGameModule */,
 			);
 			path = SpyGameModules;
 			sourceTree = "<group>";
@@ -240,6 +250,56 @@
 				D56B601927F9A4D100446962 /* SpyGamePresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D59CCC2828005030007AFB17 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D5DD7F6927FF664200C3C5B3 /* StopTimerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D59CCC292800503E007AFB17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5DD7F6727FF660900C3C5B3 /* StopTimerViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D59CCC2A2800504B007AFB17 /* VotingModule */ = {
+			isa = PBXGroup;
+			children = (
+				D59CCC292800503E007AFB17 /* View */,
+				D59CCC2828005030007AFB17 /* Presenter */,
+			);
+			path = VotingModule;
+			sourceTree = "<group>";
+		};
+		D59CCC2F280052C9007AFB17 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D59CCC2D28005167007AFB17 /* EndGamePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D59CCC30280052D0007AFB17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D59CCC2B28005126007AFB17 /* EndGameViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D59CCC31280052D7007AFB17 /* EndGameModule */ = {
+			isa = PBXGroup;
+			children = (
+				D59CCC30280052D0007AFB17 /* View */,
+				D59CCC2F280052C9007AFB17 /* Presenter */,
+			);
+			path = EndGameModule;
 			sourceTree = "<group>";
 		};
 		D5E178AE27EC7664001E3268 /* View */ = {
@@ -470,6 +530,8 @@
 				D56B601727F9A40900446962 /* SpyGameViewController.swift in Sources */,
 				D51D76CD27E77A9B00BE01F7 /* StartViewController.swift in Sources */,
 				D51D76E727E794E100BE01F7 /* LabelExtension.swift in Sources */,
+				D59CCC2C28005126007AFB17 /* EndGameViewController.swift in Sources */,
+				D5DD7F6827FF660900C3C5B3 /* StopTimerViewController.swift in Sources */,
 				D5E178B127EC7686001E3268 /* LocationsPresenter.swift in Sources */,
 				D5E178AD27EC75CD001E3268 /* LocationsViewController.swift in Sources */,
 				D5F7FB1227EA5FEA00A96110 /* GameSettingModel.swift in Sources */,
@@ -485,10 +547,12 @@
 				D51D76EF27E8739200BE01F7 /* StartScreenPresenter.swift in Sources */,
 				D51D76E927E7958D00BE01F7 /* ButtonExtension.swift in Sources */,
 				D56B602027FA3E0900446962 /* TextsForTitle.swift in Sources */,
+				D59CCC2E28005167007AFB17 /* EndGamePresenter.swift in Sources */,
 				D5F7FB0D27E9F02F00A96110 /* RulesPresenter.swift in Sources */,
 				D5FBE26A27FE28800034024A /* SpyWinViewController.swift in Sources */,
 				D5F7FB0727E9EFA000A96110 /* RulesViewController.swift in Sources */,
 				D5FBE26527FCDAF40034024A /* TimerPresenter.swift in Sources */,
+				D5DD7F6A27FF664200C3C5B3 /* StopTimerPresenter.swift in Sources */,
 				D51D76CB27E77A9B00BE01F7 /* SceneDelegate.swift in Sources */,
 				D55CF49927F4EAF9007C7196 /* CustomCell.swift in Sources */,
 				D5F7FB0F27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift in Sources */,

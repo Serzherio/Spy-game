@@ -10,8 +10,6 @@ class AddPlayersViewController: UIViewController {
     
     var presenter: AddPlayersPresenterProtocol?
     
-    var lol = ["11","11","11","11","11",]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundImage")!)
@@ -29,13 +27,13 @@ class AddPlayersViewController: UIViewController {
         playersTableView.backgroundColor = .clear
     }
     private func customAddPlayerButton() {
-        addPlayersButton.isHidden  = true
+        addPlayersButton.isEnabled = true
         addPlayersButton.setImage(UIImage(named: "WhitePlusAction"), for: .normal)
         addPlayersButton.addTarget(self, action: #selector(addPlayersButtonTapped), for: .touchUpInside)
     }
     private func customTextField() {
         addPlayersTextField.font = .noteworthy24()
-        addPlayersTextField.placeholder = "Имя игрока..."
+        addPlayersTextField.placeholder = "   Имя игрока..."
         addPlayersTextField.layer.masksToBounds = true
         addPlayersTextField.clipsToBounds = false
         addPlayersTextField.backgroundColor = .white
@@ -91,9 +89,11 @@ class AddPlayersViewController: UIViewController {
     
     @objc private func addPlayersInTextField() {
         if addPlayersTextField.text != "" {
-            addPlayersButton.isHidden = false
+            addPlayersButton.setImage(UIImage(named: "WhitePlusAction"), for: .normal)
+            addPlayersButton.isEnabled = true
         } else {
-            addPlayersButton.isHidden = true
+            addPlayersButton.setImage(UIImage(named: "PlusActionNonActive"), for: .normal)
+            addPlayersButton.isEnabled = false
         }
     }
     
@@ -167,18 +167,24 @@ extension AddPlayersViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 extension AddPlayersViewController: AddPlayersViewProtocol {
-    
-    func deletePlayer(index: Int) {
-        
-    }
-    
+
     func newPlayerAdded() {
         addPlayersTextField.text = nil
-        addPlayersButton.isHidden = true
+        addPlayersButton.setImage(UIImage(named: "PlusActionNonActive"), for: .normal)
+        addPlayersButton.isEnabled = false
         playersTableView.reloadData()
     }
     
-    func updateUI() {
-        
+    
+    func disableContinueButton() {
+        continueButton.isEnabled = false
+        continueButton.backgroundColor = .gray
     }
+    
+    func enableContinueButton() {
+        continueButton.isEnabled = true
+        continueButton.backgroundColor = .white
+    }
+    
+    
 }

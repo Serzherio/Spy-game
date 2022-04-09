@@ -35,6 +35,7 @@ class SpyGameViewController: UIViewController {
         playerSubtitle.textAlignment = .center
         playerName.numberOfLines = 0
         playerName.textAlignment = .center
+        playerName.adjustsFontSizeToFitWidth = true
         logo.contentMode = .scaleAspectFit
         nextPlayerButton.addTarget(self, action: #selector(nextPlayerButtonTapped), for: .touchUpInside)
     }
@@ -54,11 +55,11 @@ class SpyGameViewController: UIViewController {
     private func constraitsForPrepareToShow() {
         NSLayoutConstraint.activate([
             playerTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            playerTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            playerTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             playerTitle.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.8),
             playerName.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.95),
             playerName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            playerName.topAnchor.constraint(equalTo: playerTitle.bottomAnchor, constant: 30),
+            playerName.bottomAnchor.constraint(equalTo: logo.topAnchor, constant: -30),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             logo.widthAnchor.constraint(equalToConstant: 150),
@@ -81,33 +82,55 @@ class SpyGameViewController: UIViewController {
 extension SpyGameViewController: SpyGameViewProtocol {
 
     func prepareToShowNextPlayer(player: String) {
+        playerTitle.isHidden = false
         playerTitle.text = textPreset.playerTitle
         playerName.text = player
         playerSubtitle.text = textPreset.playerSubtitle
-        logo.image = UIImage(named: "SearchAction")
+        logo.image = UIImage(named: "Next")
 
     }
     
     
-    func showNextPlayerOnScreen(location: String, isRolePlay: Bool, player: Dictionary<String, Bool>.Element) {
+    func showNextPlayerOnScreen(randomSelectedLocation: String, location: String, isRolePlay: Bool, player: Dictionary<String, Bool>.Element) {
+        
+        switch randomSelectedLocation {
+        case "Базовые":
+            logo.image = UIImage(named: "Базовые")
+        case "Страны":
+            logo.image = UIImage(named: "Страны")
+        case "Города России":
+            logo.image = UIImage(named: "Города России")
+        case "Достопримечательности":
+            logo.image = UIImage(named: "Достопримечательности")
+        case "Природа":
+            logo.image = UIImage(named: "Природа")
+        case "Планеты":
+            logo.image = UIImage(named: "Планеты")
+        case "Фильмы":
+            logo.image = UIImage(named: "Фильмы")
+        case "Строго 18+":
+            logo.image = UIImage(named: "Строго 18+")
+        default:
+            logo.image = UIImage(named: "SpyHead")
+            
+        }
+        
         if player.value == true { // if hi is a spy
-            playerTitle.text = player.key
+            playerTitle.isHidden = true
             playerName.text  = "Вы - ШПИОН"
             playerName.font = .noteworthy50()
             logo.image = UIImage(named: "SpyHead")
-            playerSubtitle.text = "Удачной диверсии, мистер"
+            playerSubtitle.text = "Удачной диверсии, \(player.key)!"
         } else {
             if isRolePlay {
-                playerTitle.text = player.key
+                playerTitle.isHidden = true
                 playerName.text  = "Локация: \(location)"
                 playerName.font = .noteworthy50()
-                logo.image = UIImage(named: "SearchAction")
                 playerSubtitle.text = "Ваша роль - рыбак!"
             } else {
-                playerTitle.text = player.key
+                playerTitle.isHidden = true
                 playerName.text  = "Локация: \(location)"
                 playerName.font = .noteworthy50()
-                logo.image = UIImage(named: "SearchAction")
                 playerSubtitle.text = "Удачной игры, \(player.key)!"
             }
             

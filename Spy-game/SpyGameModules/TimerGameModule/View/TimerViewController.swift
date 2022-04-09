@@ -84,13 +84,18 @@ class TimerViewController: UIViewController {
     }
     
     @objc private func stopTimerButtonTapped() {
-        
+        presenter?.stopTimer()
     }
     
     
 }
 
 extension TimerViewController: TimerViewProcotol {
+    
+    func setLeftTime(secondsToEnd: Int) {
+        setupTimerView(secondToEnd: secondsToEnd)
+    }
+    
     
     func tickTimer(secondsToEnd: Int) {
         setupTimerView(secondToEnd: secondsToEnd)

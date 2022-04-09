@@ -14,8 +14,10 @@ protocol ModuleBuilderProtocol: class {
     func createLocationModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
     func createAddPlayersModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
     func createSpyGameMainModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
-    func createTimerGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
-    func createSpyWinGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
+    func createTimerGameModule(router: RouterProtocol, gameSetting: GameSetting, spyPlayers: [String]) -> UIViewController
+    func createSpyWinGameModule(router: RouterProtocol, gameSetting: GameSetting, spyPlayers: [String]) -> UIViewController
+    func createStopTimerController(router: RouterProtocol, gameSetting: GameSetting, spyPlayers: [String]) -> UIViewController
+    func createEndGameController(router: RouterProtocol, gameSetting: GameSetting, spyPlayers: [String]) -> UIViewController
 }
 
 class ModuleBuilder: ModuleBuilderProtocol {
@@ -64,19 +66,29 @@ class ModuleBuilder: ModuleBuilderProtocol {
         return view
     }
     
-    func createTimerGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController {
+    func createTimerGameModule(router: RouterProtocol, gameSetting: GameSetting, spyPlayers: [String]) -> UIViewController {
         let view = TimerViewController()
-        let presenter = TimerPresenter(router: router, view: view, gameSetting: gameSetting )
+        let presenter = TimerPresenter(router: router, view: view, gameSetting: gameSetting, spyPlayers: spyPlayers )
         view.presenter = presenter
         return view
     }
     
-    func createSpyWinGameModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController {
+    func createSpyWinGameModule(router: RouterProtocol, gameSetting: GameSetting, spyPlayers: [String]) -> UIViewController {
         let view = SpyWinViewController()
-        let presenter = SpyWinPresenter(router: router, view: view, gameSetting: gameSetting)
+        let presenter = SpyWinPresenter(router: router, view: view, gameSetting: gameSetting, spyPlayers: spyPlayers)
         view.presenter = presenter
         return view
     }
-    
-    
+    func createStopTimerController(router: RouterProtocol, gameSetting: GameSetting, spyPlayers: [String]) -> UIViewController {
+        let view = StopTimerViewController()
+        let presenter = StopTimerPresenter(view: view, router: router, gameSetting: gameSetting, spyPlayers: spyPlayers)
+        view.presenter = presenter
+        return view
+    }
+    func createEndGameController(router: RouterProtocol, gameSetting: GameSetting, spyPlayers: [String]) -> UIViewController {
+        let view = EndGameViewController()
+        let presenter = EndGamePresenter(view: view, router: router, gameSetting: gameSetting, spyPlayersArray: spyPlayers)
+        view.presenter = presenter
+        return view
+    }
 }

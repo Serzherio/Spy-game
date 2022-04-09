@@ -20,19 +20,33 @@ class MyCell: UICollectionViewCell {
         self.title = UILabel(frame: frame)
         self.image = UIImageView(frame: frame)
         title.font = .noteworthy24()
+        title.adjustsFontSizeToFitWidth = true
+        title.textAlignment = .center
         image.contentMode = .scaleAspectFit
         title?.translatesAutoresizingMaskIntoConstraints = false
         image?.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.layer.cornerRadius = 20
+        self.layer.masksToBounds = true
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowRadius = 5
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize(width: 5, height: 5)
+        self.clipsToBounds = false
+        
         contentView.addSubview(title)
         contentView.addSubview(image)
         
         NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: self.topAnchor),
+            image.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             image.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             image.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             image.bottomAnchor.constraint(equalTo: title.topAnchor, constant: -10),
             title.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            title.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            title.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
+            title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
+            title.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
     

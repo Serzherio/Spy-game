@@ -9,9 +9,9 @@ import Foundation
 
 
 protocol AddPlayersViewProtocol: class {
-    func updateUI()
     func newPlayerAdded()
-    func deletePlayer(index: Int)
+    func disableContinueButton()
+    func enableContinueButton()
 }
 
 protocol AddPlayersPresenterProtocol: class {
@@ -33,21 +33,31 @@ class AddPlayersPresenter: AddPlayersPresenterProtocol {
         self.view = view
         self.router = router
         self.gameSettings = gameSettings
-        print(gameSettings.players)
+        checkPlayersAmmount()
     }
     
     func addNewPlayer(player: String) {
         gameSettings.players.append(player)
         view?.newPlayerAdded()
+        checkPlayersAmmount()
     }
     
     func deletePlayer(index: Int) {
         gameSettings.players.remove(at: index)
+        checkPlayersAmmount()
     }
     
     func startGame() {
         router?.showSpyGameController(gameSetting: gameSettings)
-        
+    }
+    
+    
+    private func checkPlayersAmmount() {
+        if gameSettings.playerAmmount != gameSettings.players.count {
+            view?.disableContinueButton()
+        } else {
+            view?.enableContinueButton()
+        }
     }
     
     
