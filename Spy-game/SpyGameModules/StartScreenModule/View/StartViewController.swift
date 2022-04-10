@@ -92,17 +92,14 @@ class StartViewController: UIViewController {
     
     // MARK: - UI actions
     @objc func rulesButtonPressed() {
-        print("rulesButtonPressed")
         presenter.pressDonateAuthor()
     }
     
     @objc func startGameButtonPressed() {
-        print("startGameButtonPressed")
         presenter.pressStartGameButton()
     }
     
     @objc func showRulesButtonPressed() {
-        print("showRulesButtonPressed")
         presenter.pressShowRulesButton()
     }
     
