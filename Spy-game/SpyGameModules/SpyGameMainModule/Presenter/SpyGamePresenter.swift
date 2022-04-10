@@ -80,11 +80,10 @@ class SpyGamePresenter: SpyGamePresenterProtocol {
                 prepareForShowPlayerRoleFlag = true
             }
         } else {
-            router?.showTimerController(gameSetting: gameSetting, spyPlayers: spyPlayersArray)
+            router?.showReadyStartGameController(gameSetting: gameSetting, spyPlayers: spyPlayersArray)
         }
     
-      
-        
+
     }
     
     

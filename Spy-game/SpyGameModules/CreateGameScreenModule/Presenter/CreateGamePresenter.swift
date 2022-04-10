@@ -36,6 +36,13 @@ class CreateGamePresenter: CreateGamePresenterProtocol {
     required init(view: CreateGameViewProtocol, router: RouterProtocol) {
         self.view = view
         self.router = router
+        getPlayersFromDevice()
+    }
+    
+    private func getPlayersFromDevice() {
+        let defaults = UserDefaults.standard
+        let players = defaults.object(forKey: "players") as? [String]
+        gameSettings.players = players ?? []
     }
     
     func minusButtonForPlayersAmmountTapped() {

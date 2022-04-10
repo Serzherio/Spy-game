@@ -88,6 +88,7 @@ extension SpyGameViewController: SpyGameViewProtocol {
         playerName.text = player
         playerSubtitle.text = textPreset.playerSubtitle
         logo.image = UIImage(named: "Next")
+        nextPlayerButton.setTitle("Я готов!", for: .normal)
 
     }
     
@@ -134,8 +135,8 @@ extension SpyGameViewController: SpyGameViewProtocol {
                 playerName.font = .noteworthy50()
                 playerSubtitle.text = "Удачной игры, \(player.key)!"
             }
-            
         }
+        nextPlayerButton.setTitle("Понятно", for: .normal)
         
 
     }

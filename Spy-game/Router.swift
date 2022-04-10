@@ -20,6 +20,7 @@ protocol RouterProtocol: RouterMain {
     func showDonateController()
     func showLocationController(gameSetting: GameSetting)
     func showAddPlayersController(gameSetting: GameSetting)
+    func showReadyStartGameController(gameSetting: GameSetting, spyPlayers: [String])
     func showSpyGameController(gameSetting: GameSetting)
     func showTimerController(gameSetting: GameSetting, spyPlayers: [String])
     func showSpyWinController(gameSetting: GameSetting, spyPlayers: [String])
@@ -71,6 +72,13 @@ class Router: RouterProtocol {
         if let navigationController = navigationController {
             guard let addPlayersVC = moduleBuilder?.createAddPlayersModule(router: self, gameSetting: gameSetting) else {return}
             navigationController.pushViewController(addPlayersVC, animated: true)
+        }
+    }
+    
+    func showReadyStartGameController(gameSetting: GameSetting, spyPlayers: [String]) {
+        if let navigationController = navigationController {
+            guard let startGameVC = moduleBuilder?.createReadyStartGameModule(router: self, gameSetting: gameSetting, spyPlayers: spyPlayers) else {return}
+            navigationController.pushViewController(startGameVC, animated: true)
         }
     }
     

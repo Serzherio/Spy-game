@@ -20,6 +20,13 @@ class AddPlayersViewController: UIViewController {
         customAddPlayerButton()
         customContinueButton()
         layoutDesign()
+        swipeToHideKB()
+    }
+    private func swipeToHideKB() {
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboardOnSwipeDown))
+        swipeDown.delegate = self
+        swipeDown.direction =  UISwipeGestureRecognizer.Direction.down
+        self.playersTableView.addGestureRecognizer(swipeDown)
     }
     
     private func customTableView() {
@@ -37,6 +44,7 @@ class AddPlayersViewController: UIViewController {
         addPlayersButton.addTarget(self, action: #selector(addPlayersButtonTapped), for: .touchUpInside)
     }
     private func customTextField() {
+        addPlayersTextField.delegate = self
         addPlayersTextField.font = .noteworthy24()
         addPlayersTextField.placeholder = "   Имя игрока..."
         addPlayersTextField.layer.masksToBounds = true
@@ -83,6 +91,7 @@ class AddPlayersViewController: UIViewController {
     }
     
     @objc private func addPlayersButtonTapped() {
+        view.endEditing(true)
         if addPlayersTextField.text != nil {
             presenter?.addNewPlayer(player: addPlayersTextField.text!)
         }
@@ -101,6 +110,10 @@ class AddPlayersViewController: UIViewController {
             addPlayersButton.isEnabled = false
         }
     }
+    
+    @objc private func hideKeyboardOnSwipeDown() {
+            view.endEditing(true)
+        }
     
     private func leadingSwipeCell(indexPath: IndexPath, tableView: UITableView) {
         let transition = CATransition()
@@ -126,6 +139,22 @@ class AddPlayersViewController: UIViewController {
     
  
     
+    
+}
+
+extension AddPlayersViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+            return true
+        }
+}
+
+extension AddPlayersViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
 }
 

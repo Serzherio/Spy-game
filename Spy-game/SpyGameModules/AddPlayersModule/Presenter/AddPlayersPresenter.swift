@@ -54,6 +54,7 @@ class AddPlayersPresenter: AddPlayersPresenterProtocol {
     }
     
     func startGame() {
+        savePlayersOnDevice()
         router?.showSpyGameController(gameSetting: gameSettings)
     }
     
@@ -64,6 +65,11 @@ class AddPlayersPresenter: AddPlayersPresenterProtocol {
         } else {
             view?.enableContinueButton()
         }
+    }
+    
+    private func savePlayersOnDevice() {
+        let defaults = UserDefaults.standard
+        defaults.set(gameSettings.players, forKey: "players")
     }
     
     
