@@ -26,6 +26,7 @@ class StartViewController: UIViewController {
         addDonateAuthorButton()
         addButtonsOnScreen()
     }
+  
 
     
     //MARK: - UI setup functions
@@ -41,7 +42,7 @@ class StartViewController: UIViewController {
             spyLogoImage.widthAnchor.constraint(equalToConstant: self.view.bounds.width),
             spyLogoImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
         ])
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: .none, action: .none)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: .none, action: .none)
     }
     
     private func addTitleLabel() {

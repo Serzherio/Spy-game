@@ -11,7 +11,7 @@ class TimerViewController: UIViewController {
     
     // UIElements
     let startTimerTitle = UILabel(textLabel: "Время пошло!", font: .noteworthy50())
-    let subtitleTimer = UILabel(textLabel: "Когда таймер дойдет до 0:00, шпион совершит диверсию!", font: .noteworthy24())
+    let subtitleTimer = UILabel(textLabel: "Когда таймер дойдет до 00:00, шпион совершит диверсию!", font: .noteworthy24())
     let timerLabel = UILabel(textLabel: "00:00", font: .noteworthy50())
     let timerLogo = UIImageView(image: UIImage(named: "Timer"))
     let timerDescriptionLabel = UILabel(textLabel: "Таймер можно остановить, если большинство игроков согласны с этим решением.", font: .noteworthy24())
@@ -56,11 +56,11 @@ class TimerViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             startTimerTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            startTimerTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            startTimerTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
             startTimerTitle.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.8),
             subtitleTimer.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.95),
             subtitleTimer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            subtitleTimer.topAnchor.constraint(equalTo: startTimerTitle.bottomAnchor, constant: 20),
+            subtitleTimer.topAnchor.constraint(equalTo: startTimerTitle.bottomAnchor, constant: 10),
             timerLabel.bottomAnchor.constraint(equalTo: timerLogo.topAnchor, constant: -20),
             timerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             timerLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),

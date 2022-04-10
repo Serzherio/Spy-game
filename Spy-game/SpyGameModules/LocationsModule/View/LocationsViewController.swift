@@ -21,6 +21,7 @@ class LocationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundImage")!)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: .none, action: .none)
         setupCollectionView()
         layoutDesign()
         titleLabel.text = "Локации: \(presenter!.gameSetting.selectedLocations.count)"

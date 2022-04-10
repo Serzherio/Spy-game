@@ -10,7 +10,7 @@ import UIKit
 class CreateGameViewController: UIViewController {
     
     //UI elements
-    var titleSettingLabel = UILabel(textLabel: "Настройки игры", font: .noteworthy50())
+    var titleSettingLabel = UILabel(textLabel: "Настройки", font: .noteworthy50())
     let continueButton = UIButton(title: "Продолжить", titleColor: .black, backgroundColor: .white, font: .noteworthy30(), isShadow: true, cornerRadius: 40)
     let minusButtonForPlayersAmmount = UIButton(type: .system)
     let plusButtonForPlayersAmmount = UIButton(type: .system)
@@ -51,14 +51,16 @@ class CreateGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundImage")!)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: .none, action: .none)
 
         designButtons()
         layoutDesign()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateView()
+        navigationController?.navigationBar.isHidden = false
     }
     
     
@@ -152,8 +154,8 @@ class CreateGameViewController: UIViewController {
             continueButton.heightAnchor.constraint(equalToConstant: 80),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackView.topAnchor.constraint(equalTo: titleSettingLabel.bottomAnchor, constant: 30),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 440)
         ])
     }
     

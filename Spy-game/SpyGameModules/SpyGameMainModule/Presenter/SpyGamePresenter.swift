@@ -55,7 +55,6 @@ class SpyGamePresenter: SpyGamePresenterProtocol {
     private func setRandomSpyInPlayers() {
         var allPlayersDictionary: [String: Bool] = [:]
         var playersArray = gameSetting.players
-//        var spyArray: [String] = []
         for _ in 1...gameSetting.spyAmmount {
             guard let spy = playersArray.randomElement() else {return}
             spyPlayersArray.append(spy)

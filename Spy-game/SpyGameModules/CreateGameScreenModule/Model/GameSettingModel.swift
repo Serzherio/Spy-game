@@ -14,7 +14,7 @@ class GameSetting {
     var roles: Bool = false
     var selectedLocations: [String] = ["Базовые"]
     
-    var players: [String] = ["Юля", "Юса", "Я", "Сергей"]
+    var players: [String] = []
     
     var locations : [String:[String]] = ["Базовые":Locations().main,
                                          "Страны" : Locations().countries,

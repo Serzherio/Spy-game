@@ -2,8 +2,8 @@ import UIKit
 
 class AddPlayersViewController: UIViewController {
     
-    let titleLabel = UILabel(textLabel: "Кто играет?", font: .noteworthy50())
-    var playersTableView = UITableView()
+    let titleLabel = UILabel(textLabel: "Игроки", font: .noteworthy50())
+    var playersTableView = UITableView(frame: .zero, style: .grouped)
     let addPlayersTextField = UITextField()
     let addPlayersButton = UIButton(type: .system)
     let continueButton = UIButton(title: "Начать игру!", titleColor: .black, backgroundColor: .white, font: .noteworthy30(), isShadow: true, cornerRadius: 40)
@@ -13,6 +13,8 @@ class AddPlayersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundImage")!)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: .none, action: .none)
+
         customTableView()
         customTextField()
         customAddPlayerButton()
@@ -24,7 +26,10 @@ class AddPlayersViewController: UIViewController {
         playersTableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
         playersTableView.delegate = self
         playersTableView.dataSource = self
+        playersTableView.allowsSelection = false
         playersTableView.backgroundColor = .clear
+        playersTableView.emptyDataSetSource = self
+        playersTableView.emptyDataSetDelegate = self
     }
     private func customAddPlayerButton() {
         addPlayersButton.isEnabled = true
@@ -119,6 +124,8 @@ class AddPlayersViewController: UIViewController {
         tableView.reloadData()
     }
     
+ 
+    
     
 }
 
@@ -162,11 +169,27 @@ extension AddPlayersViewController: UITableViewDelegate, UITableViewDataSource {
         action.backgroundColor = .systemRed
         return UISwipeActionsConfiguration(actions: [action])
     }
+    
+    
 }
 
 
 
 extension AddPlayersViewController: AddPlayersViewProtocol {
+    
+    func warningExistPlayers(player: String) {
+        
+        let alert = UIAlertController(title: "Внимание", message: "Вы уже добавили игрока с именем \(player)",
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Понятно", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        addPlayersTextField.text = nil
+        addPlayersButton.isEnabled = false
+        addPlayersButton.setImage(UIImage(named: "PlusActionNonActive"), for: .normal)
+    }
+                        
+                        
 
     func newPlayerAdded() {
         addPlayersTextField.text = nil

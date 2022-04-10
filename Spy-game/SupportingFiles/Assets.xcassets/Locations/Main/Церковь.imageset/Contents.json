@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "filename" : "church-black-silhouette-with-a-cross-on-top_icon-icons.com_56737.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true,
+    "template-rendering-intent" : "original"
+  }
+}

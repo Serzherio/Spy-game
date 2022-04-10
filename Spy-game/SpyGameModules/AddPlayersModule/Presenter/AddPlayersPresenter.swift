@@ -12,6 +12,7 @@ protocol AddPlayersViewProtocol: class {
     func newPlayerAdded()
     func disableContinueButton()
     func enableContinueButton()
+    func warningExistPlayers(player: String)
 }
 
 protocol AddPlayersPresenterProtocol: class {
@@ -37,9 +38,14 @@ class AddPlayersPresenter: AddPlayersPresenterProtocol {
     }
     
     func addNewPlayer(player: String) {
-        gameSettings.players.append(player)
-        view?.newPlayerAdded()
-        checkPlayersAmmount()
+        if gameSettings.players.contains(player) {
+            view?.warningExistPlayers(player: player)
+        } else {
+            gameSettings.players.append(player)
+            view?.newPlayerAdded()
+            checkPlayersAmmount()
+        }
+ 
     }
     
     func deletePlayer(index: Int) {

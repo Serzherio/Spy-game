@@ -13,6 +13,7 @@ class RulesViewConrtoller: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: .none, action: .none)
     }
     
 }

@@ -22,6 +22,7 @@ class SpyGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundImage")!)
+        navigationController?.navigationBar.isHidden = true
         setupUIElements()
         layoutDesign()
     }
@@ -95,7 +96,7 @@ extension SpyGameViewController: SpyGameViewProtocol {
         
         switch randomSelectedLocation {
         case "Базовые":
-            logo.image = UIImage(named: "Базовые")
+            logo.image = UIImage(named: location)
         case "Страны":
             logo.image = UIImage(named: "Страны")
         case "Города России":

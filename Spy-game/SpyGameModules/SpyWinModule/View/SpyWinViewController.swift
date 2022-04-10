@@ -49,7 +49,7 @@ class SpyWinViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             headTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            headTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            headTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
             headTitle.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.8),
             subTitle.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.95),
             subTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),

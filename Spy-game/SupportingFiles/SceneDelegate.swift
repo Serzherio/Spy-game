@@ -18,6 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         let navigationController = UINavigationController()
+        navigationController.isToolbarHidden = true
+        navigationController.navigationBar.isTranslucent = true
+        let backImage = UIImage(named: "Back")
+        navigationController.navigationBar.backIndicatorImage = backImage
+        navigationController.navigationBar.backIndicatorTransitionMaskImage = backImage
+        navigationController.navigationItem.leftItemsSupplementBackButton = true
+        navigationController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.isTranslucent = true
+        
         let moduleBuilder = ModuleBuilder()
         let router = Router(navigationController: navigationController, moduleBuilder: moduleBuilder)
         router.initialViewController()

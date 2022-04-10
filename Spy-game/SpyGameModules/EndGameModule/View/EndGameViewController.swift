@@ -11,7 +11,7 @@ class EndGameViewController: UIViewController {
     
     // UIElements
     let headTitle = UILabel(textLabel: "Выбор сделан!", font: .noteworthy50())
-    let subHeadTitle = UILabel(textLabel: "Шпионом оказался...", font: .noteworthy24())
+    let subHeadTitle = UILabel(textLabel: "Шпионом оказался игрок...", font: .noteworthy24())
     let spyTitle = UILabel(textLabel: "", font: .noteworthy50())
     let descriptionTitle = UILabel(textLabel: "Если игра зашла, закиньте авторам на пиво:)", font: .noteworthy24())
     let stopGameButton = UIButton(title: "Завершить", titleColor: .black, backgroundColor: .white, font: .noteworthy30(), isShadow: true, cornerRadius: 40)
@@ -52,7 +52,7 @@ class EndGameViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             headTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            headTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            headTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
             headTitle.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.8),
             subHeadTitle.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.95),
             subHeadTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),

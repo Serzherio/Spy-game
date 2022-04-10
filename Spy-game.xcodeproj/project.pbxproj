@@ -26,6 +26,8 @@
 		D56B601A27F9A4D100446962 /* SpyGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B601927F9A4D100446962 /* SpyGamePresenter.swift */; };
 		D56B601E27F9F9F200446962 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B601D27F9F9F200446962 /* DictionaryExtension.swift */; };
 		D56B602027FA3E0900446962 /* TextsForTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B601F27FA3E0900446962 /* TextsForTitle.swift */; };
+		D575031A2803246B00A866C2 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D57503182803246B00A866C2 /* UIScrollView+EmptyDataSet.m */; };
+		D575031D280324C100A866C2 /* AddPlayersViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575031C280324C100A866C2 /* AddPlayersViewControllerExtension.swift */; };
 		D59CCC2C28005126007AFB17 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CCC2B28005126007AFB17 /* EndGameViewController.swift */; };
 		D59CCC2E28005167007AFB17 /* EndGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CCC2D28005167007AFB17 /* EndGamePresenter.swift */; };
 		D5DD7F6827FF660900C3C5B3 /* StopTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DD7F6727FF660900C3C5B3 /* StopTimerViewController.swift */; };
@@ -67,6 +69,10 @@
 		D56B601927F9A4D100446962 /* SpyGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyGamePresenter.swift; sourceTree = "<group>"; };
 		D56B601D27F9F9F200446962 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		D56B601F27FA3E0900446962 /* TextsForTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextsForTitle.swift; sourceTree = "<group>"; };
+		D57503172803246A00A866C2 /* Spy-game-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spy-game-Bridging-Header.h"; sourceTree = "<group>"; };
+		D57503182803246B00A866C2 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		D57503192803246B00A866C2 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		D575031C280324C100A866C2 /* AddPlayersViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayersViewControllerExtension.swift; sourceTree = "<group>"; };
 		D59CCC2B28005126007AFB17 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 		D59CCC2D28005167007AFB17 /* EndGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGamePresenter.swift; sourceTree = "<group>"; };
 		D5DD7F6727FF660900C3C5B3 /* StopTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopTimerViewController.swift; sourceTree = "<group>"; };
@@ -121,7 +127,9 @@
 				D55CF48D27F4E2A9007C7196 /* SpyGameModules */,
 				D5F7FB1027E9FEC100A96110 /* CustomUIView */,
 				D51D76EA27E8636000BE01F7 /* UIKitExtensions */,
+				D575031B2803247800A866C2 /* EmptyDataSet */,
 				D51D76F027E8783A00BE01F7 /* SupportingFiles */,
+				D57503172803246A00A866C2 /* Spy-game-Bridging-Header.h */,
 			);
 			path = "Spy-game";
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 			children = (
 				D55CF48E27F4E394007C7196 /* AddPlayersViewController.swift */,
 				D55CF49827F4EAF9007C7196 /* CustomCell.swift */,
+				D575031C280324C100A866C2 /* AddPlayersViewControllerExtension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,6 +259,15 @@
 				D56B601927F9A4D100446962 /* SpyGamePresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D575031B2803247800A866C2 /* EmptyDataSet */ = {
+			isa = PBXGroup;
+			children = (
+				D57503192803246B00A866C2 /* UIScrollView+EmptyDataSet.h */,
+				D57503182803246B00A866C2 /* UIScrollView+EmptyDataSet.m */,
+			);
+			path = EmptyDataSet;
 			sourceTree = "<group>";
 		};
 		D59CCC2828005030007AFB17 /* Presenter */ = {
@@ -485,6 +503,7 @@
 				TargetAttributes = {
 					D51D76C427E77A9B00BE01F7 = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
 					};
 				};
 			};
@@ -544,6 +563,7 @@
 				D56B601A27F9A4D100446962 /* SpyGamePresenter.swift in Sources */,
 				D56B601E27F9F9F200446962 /* DictionaryExtension.swift in Sources */,
 				D51D76F427E8795900BE01F7 /* ModuleBuilder.swift in Sources */,
+				D575031D280324C100A866C2 /* AddPlayersViewControllerExtension.swift in Sources */,
 				D51D76EF27E8739200BE01F7 /* StartScreenPresenter.swift in Sources */,
 				D51D76E927E7958D00BE01F7 /* ButtonExtension.swift in Sources */,
 				D56B602027FA3E0900446962 /* TextsForTitle.swift in Sources */,
@@ -554,6 +574,7 @@
 				D5FBE26527FCDAF40034024A /* TimerPresenter.swift in Sources */,
 				D5DD7F6A27FF664200C3C5B3 /* StopTimerPresenter.swift in Sources */,
 				D51D76CB27E77A9B00BE01F7 /* SceneDelegate.swift in Sources */,
+				D575031A2803246B00A866C2 /* UIScrollView+EmptyDataSet.m in Sources */,
 				D55CF49927F4EAF9007C7196 /* CustomCell.swift in Sources */,
 				D5F7FB0F27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift in Sources */,
 				D5FBE26C27FE28A70034024A /* SpyWinPresenter.swift in Sources */,
@@ -625,7 +646,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -680,7 +701,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -695,6 +716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UJLV2F74LA;
@@ -703,8 +725,11 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -713,8 +738,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Sega.Spy-game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Spy-game/Spy-game-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -723,6 +750,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UJLV2F74LA;
@@ -731,8 +759,11 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -741,8 +772,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Sega.Spy-game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Spy-game/Spy-game-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

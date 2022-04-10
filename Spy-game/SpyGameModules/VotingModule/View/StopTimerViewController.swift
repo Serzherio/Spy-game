@@ -10,7 +10,7 @@ import UIKit
 class StopTimerViewController: UIViewController {
     
     // UIElements
-    let headTitle = UILabel(textLabel: "Время устроить голосование!", font: .noteworthy50())
+    let headTitle = UILabel(textLabel: "Время голосования!", font: .noteworthy50())
     let subHeadTitle = UILabel(textLabel: "Количество шпионов, которое вам необходимо вычислить:", font: .noteworthy24())
     let spyAmmountTitle = UILabel(textLabel: "", font: .noteworthy50())
     let descriptionTitle = UILabel(textLabel: "Если голосование завершено, нажмите кнопку, чтобы узнать результат", font: .noteworthy24())
@@ -53,7 +53,7 @@ class StopTimerViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             headTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            headTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            headTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
             headTitle.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.8),
             subHeadTitle.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.95),
             subHeadTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
