@@ -20,4 +20,10 @@ extension UIFont {
     static func noteworthy24() -> UIFont {
         return self.init(name: "Noteworthy", size: 24)!
     }
+    static func noteworthy20() -> UIFont {
+        return self.init(name: "Noteworthy", size: 20)!
+    }
+    static func noteworthy18() -> UIFont {
+        return self.init(name: "Noteworthy", size: 18)!
+    }
 }

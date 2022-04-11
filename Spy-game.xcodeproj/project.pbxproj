@@ -22,6 +22,7 @@
 		D55CF48F27F4E394007C7196 /* AddPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55CF48E27F4E394007C7196 /* AddPlayersViewController.swift */; };
 		D55CF49327F4E3E7007C7196 /* AddPlayersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55CF49227F4E3E7007C7196 /* AddPlayersPresenter.swift */; };
 		D55CF49927F4EAF9007C7196 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55CF49827F4EAF9007C7196 /* CustomCell.swift */; };
+		D56409A32804BC28004D4D90 /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56409A22804BC28004D4D90 /* Rules.swift */; };
 		D56B601727F9A40900446962 /* SpyGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B601627F9A40900446962 /* SpyGameViewController.swift */; };
 		D56B601A27F9A4D100446962 /* SpyGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B601927F9A4D100446962 /* SpyGamePresenter.swift */; };
 		D56B601E27F9F9F200446962 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B601D27F9F9F200446962 /* DictionaryExtension.swift */; };
@@ -67,6 +68,7 @@
 		D55CF48E27F4E394007C7196 /* AddPlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayersViewController.swift; sourceTree = "<group>"; };
 		D55CF49227F4E3E7007C7196 /* AddPlayersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayersPresenter.swift; sourceTree = "<group>"; };
 		D55CF49827F4EAF9007C7196 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		D56409A22804BC28004D4D90 /* Rules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
 		D56B601627F9A40900446962 /* SpyGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyGameViewController.swift; sourceTree = "<group>"; };
 		D56B601927F9A4D100446962 /* SpyGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyGamePresenter.swift; sourceTree = "<group>"; };
 		D56B601D27F9F9F200446962 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 		D5F7FB0A27E9EFDE00A96110 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D56409A22804BC28004D4D90 /* Rules.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				D51D76CB27E77A9B00BE01F7 /* SceneDelegate.swift in Sources */,
 				D575031A2803246B00A866C2 /* UIScrollView+EmptyDataSet.m in Sources */,
 				D55CF49927F4EAF9007C7196 /* CustomCell.swift in Sources */,
+				D56409A32804BC28004D4D90 /* Rules.swift in Sources */,
 				D5F7FB0F27E9FEBA00A96110 /* ViewWithLabelAndButtons.swift in Sources */,
 				D5FBE26C27FE28A70034024A /* SpyWinPresenter.swift in Sources */,
 			);

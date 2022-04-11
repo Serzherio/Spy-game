@@ -14,6 +14,7 @@ protocol RulesViewProtocol: class {
 
 protocol RulesPresenterProtocol: class {
     init(view: RulesViewProtocol, router: RouterProtocol)
+    func closeVC()
 }
 
 class RulesPresenter: RulesPresenterProtocol {
@@ -24,6 +25,10 @@ class RulesPresenter: RulesPresenterProtocol {
     required init(view: RulesViewProtocol, router: RouterProtocol) {
         self.router = router
         self.view = view
+    }
+    
+    func closeVC() {
+        router?.popVC()
     }
     
 }
