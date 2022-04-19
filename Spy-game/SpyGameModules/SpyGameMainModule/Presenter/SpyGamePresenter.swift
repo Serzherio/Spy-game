@@ -11,7 +11,7 @@ import Foundation
 protocol SpyGameViewProtocol: class {
     func updateUI()
     func prepareToShowNextPlayer(player: String)
-    func showNextPlayerOnScreen(randomSelectedLocation: String, location: String, isRolePlay: Bool, player: Dictionary<String,Bool>.Element)
+    func showNextPlayerOnScreen(randomSelectedLocation: String, location: String, isRolePlay: Bool, roleForPlay: String, player: Dictionary<String,Bool>.Element)
 }
 
 protocol SpyGamePresenterProtocol: class {
@@ -29,6 +29,7 @@ class SpyGamePresenter: SpyGamePresenterProtocol {
     var players:[Dictionary<String,Bool>.Element] = []
     var playersCounter: Int
     var locationForGame: String = ""
+    var roleForPlay: String = ""
     var spyPlayersArray: [String] = []
     var prepareForShowPlayerRoleFlag: Bool = true
     var randomSelectedLocation: String = ""
@@ -67,6 +68,27 @@ class SpyGamePresenter: SpyGamePresenterProtocol {
         allPlayersDictionary.merge(other: spyDictionary)
         players = allPlayersDictionary.shuffled()
     }
+    
+    private func setRandomRoleForPlay() {
+        let allRoles = Roles()
+        switch locationForGame {
+        case "Отель": roleForPlay = allRoles.hotelRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        case "Больница": roleForPlay = allRoles.hospitalRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        case "Пиратский корабль": roleForPlay = allRoles.boatRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        case "Полицейский участок": roleForPlay = allRoles.policeRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        case "Театр": roleForPlay = allRoles.theaterRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        case "Школа": roleForPlay = allRoles.schoolRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        case "Магазин": roleForPlay = allRoles.marketRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        case "Подводная лодка": roleForPlay = allRoles.underwaterBoatRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        case "Университет": roleForPlay = allRoles.universityRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        case "Церковь": roleForPlay = allRoles.churchRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        case "Казино": roleForPlay = allRoles.casinoRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        case "Пляж": roleForPlay = allRoles.beachRoles.randomElement() ?? "Роли доступны только в наборе Базовые"
+        default:
+            roleForPlay = "Роли доступны только в наборе Базовые"
+        }
+        print(roleForPlay)
+    }
 
     
     func showNextPlayer() {
@@ -75,7 +97,8 @@ class SpyGamePresenter: SpyGamePresenterProtocol {
                 view?.prepareToShowNextPlayer(player: players[playersCounter - 1].key)
                 prepareForShowPlayerRoleFlag = false
             } else {
-                view?.showNextPlayerOnScreen(randomSelectedLocation: randomSelectedLocation, location: locationForGame, isRolePlay: gameSetting.roles, player: players[playersCounter - 1])
+                setRandomRoleForPlay()
+                view?.showNextPlayerOnScreen(randomSelectedLocation: randomSelectedLocation, location: locationForGame, isRolePlay: gameSetting.roles, roleForPlay: roleForPlay, player: players[playersCounter - 1])
                 playersCounter -= 1
                 prepareForShowPlayerRoleFlag = true
             }

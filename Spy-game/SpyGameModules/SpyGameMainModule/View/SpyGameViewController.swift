@@ -93,7 +93,7 @@ extension SpyGameViewController: SpyGameViewProtocol {
     }
     
     
-    func showNextPlayerOnScreen(randomSelectedLocation: String, location: String, isRolePlay: Bool, player: Dictionary<String, Bool>.Element) {
+    func showNextPlayerOnScreen(randomSelectedLocation: String, location: String, isRolePlay: Bool, roleForPlay: String, player: Dictionary<String, Bool>.Element) {
         
         switch randomSelectedLocation {
         case "Базовые":
@@ -114,7 +114,6 @@ extension SpyGameViewController: SpyGameViewProtocol {
             logo.image = UIImage(named: "Строго 18+")
         default:
             logo.image = UIImage(named: "SpyHead")
-            
         }
         
         if player.value == true { // if hi is a spy
@@ -124,11 +123,11 @@ extension SpyGameViewController: SpyGameViewProtocol {
             logo.image = UIImage(named: "SpyHead")
             playerSubtitle.text = "Удачной диверсии, \(player.key)!"
         } else {
-            if isRolePlay {
+            if isRolePlay { // if is active Role play mode
                 playerTitle.isHidden = true
                 playerName.text  = "Локация: \(location)"
                 playerName.font = .noteworthy50()
-                playerSubtitle.text = "Ваша роль - рыбак!"
+                playerSubtitle.text = "Ваша роль - \(roleForPlay)!"
             } else {
                 playerTitle.isHidden = true
                 playerName.text  = "Локация: \(location)"

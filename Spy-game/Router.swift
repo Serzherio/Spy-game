@@ -15,9 +15,9 @@ protocol RouterMain {
 
 protocol RouterProtocol: RouterMain {
     func initialViewController()
+    func showDonateController()
     func showCreateGameController()
     func showRulesController()
-    func showDonateController()
     func showLocationController(gameSetting: GameSetting)
     func showAddPlayersController(gameSetting: GameSetting)
     func showReadyStartGameController(gameSetting: GameSetting, spyPlayers: [String])
@@ -44,6 +44,13 @@ class Router: RouterProtocol {
         if let navigationController = navigationController {
             guard let startScreenViewController = moduleBuilder?.createStartScreenModule(router: self) else {return}
             navigationController.viewControllers = [startScreenViewController]
+        }
+    }
+    
+    func showDonateController() {
+        if let navigationController = navigationController {
+            guard let donateVC = moduleBuilder?.createDonateModule(router: self) else {return}
+            navigationController.pushViewController(donateVC, animated: true)
         }
     }
     
@@ -115,14 +122,6 @@ class Router: RouterProtocol {
         }
     }
     
-    
-    
-
-    
-    
-    func showDonateController() {
-        
-    }
     
     func popVC() {
         if let navigationController = navigationController {

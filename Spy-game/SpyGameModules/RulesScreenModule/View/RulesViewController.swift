@@ -31,13 +31,12 @@ class RulesViewConrtoller: UIViewController {
         textView.font = .noteworthy24()
         textView.isScrollEnabled = true
         textView.isEditable = false
-        
         closeRulesButton.addTarget(self, action: #selector(closeRulesButtonTapped), for: .touchUpInside)
     }
     
     private func createRulesText() {
         let text = RulesText()
-        var concateText = NSMutableAttributedString()
+        let concateText = NSMutableAttributedString()
         let headerAttributes: [NSAttributedString.Key: Any] = [ .font: UIFont.noteworthy30(), .foregroundColor: UIColor.white]
         let usualAttributes: [NSAttributedString.Key: Any] = [ .font: UIFont.noteworthy20(), .foregroundColor: UIColor.black]
         let usualAttributes24: [NSAttributedString.Key: Any] = [ .font: UIFont.noteworthy24(), .foregroundColor: UIColor.black]
@@ -61,8 +60,6 @@ class RulesViewConrtoller: UIViewController {
         concateText.append(short)
         let shortText = NSAttributedString(string: text.shortText, attributes: usualAttributes24)
         concateText.append(shortText)
-        
-        
         textView.attributedText = concateText
     }
     
@@ -81,7 +78,6 @@ class RulesViewConrtoller: UIViewController {
             textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             textView.topAnchor.constraint(equalTo: rulesTitle.bottomAnchor, constant: 20),
             textView.bottomAnchor.constraint(equalTo: closeRulesButton.topAnchor, constant: -20),
-            
             closeRulesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             closeRulesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             closeRulesButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),

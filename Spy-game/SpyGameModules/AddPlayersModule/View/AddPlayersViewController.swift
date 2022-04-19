@@ -135,7 +135,7 @@ class AddPlayersViewController: UIViewController {
         transition.subtype = CATransitionSubtype.fromLeft
         tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
         tableView.reloadData()
-    }
+    }		
     
  
     

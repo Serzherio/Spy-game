@@ -9,6 +9,7 @@ import UIKit
 
 protocol ModuleBuilderProtocol: class {
     func createStartScreenModule(router: RouterProtocol) -> UIViewController
+    func createDonateModule(router: RouterProtocol) -> UIViewController
     func createGameModule(router: RouterProtocol) -> UIViewController
     func createRulesModule(router: RouterProtocol) -> UIViewController
     func createLocationModule(router: RouterProtocol, gameSetting: GameSetting) -> UIViewController
@@ -29,6 +30,14 @@ class ModuleBuilder: ModuleBuilderProtocol {
         view.presenter = presenter
         return view
     }
+    
+    func createDonateModule(router: RouterProtocol) -> UIViewController {
+        let view = DonateViewController()
+        let presenter = DonatePresenter(view: view, router: router)
+        view.presenter = presenter
+        return view
+    }
+    
     
     func createGameModule(router: RouterProtocol) -> UIViewController {
         let view = CreateGameViewController()

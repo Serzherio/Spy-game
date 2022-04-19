@@ -39,7 +39,7 @@ class StartScreenPresenter: StartScreenPresenterProtocol {
     }
     
     func pressDonateAuthor() {
-        
+        router?.showDonateController()
     }
     
     

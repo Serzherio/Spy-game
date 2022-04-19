@@ -31,6 +31,9 @@
 		D575031D280324C100A866C2 /* AddPlayersViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575031C280324C100A866C2 /* AddPlayersViewControllerExtension.swift */; };
 		D575031F28034DB500A866C2 /* ReadyStartGamveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575031E28034DB500A866C2 /* ReadyStartGamveViewController.swift */; };
 		D575032128034DF400A866C2 /* ReadyStartGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575032028034DF400A866C2 /* ReadyStartGamePresenter.swift */; };
+		D58A91E8280725B3001382CF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58A91E7280725B3001382CF /* StoreKit.framework */; };
+		D58A91EA280729C0001382CF /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58A91E9280729C0001382CF /* DonateViewController.swift */; };
+		D58A91EC280729ED001382CF /* DonatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58A91EB280729ED001382CF /* DonatePresenter.swift */; };
 		D59CCC2C28005126007AFB17 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CCC2B28005126007AFB17 /* EndGameViewController.swift */; };
 		D59CCC2E28005167007AFB17 /* EndGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CCC2D28005167007AFB17 /* EndGamePresenter.swift */; };
 		D5DD7F6827FF660900C3C5B3 /* StopTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DD7F6727FF660900C3C5B3 /* StopTimerViewController.swift */; };
@@ -79,6 +82,9 @@
 		D575031C280324C100A866C2 /* AddPlayersViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayersViewControllerExtension.swift; sourceTree = "<group>"; };
 		D575031E28034DB500A866C2 /* ReadyStartGamveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyStartGamveViewController.swift; sourceTree = "<group>"; };
 		D575032028034DF400A866C2 /* ReadyStartGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyStartGamePresenter.swift; sourceTree = "<group>"; };
+		D58A91E7280725B3001382CF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D58A91E9280729C0001382CF /* DonateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
+		D58A91EB280729ED001382CF /* DonatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonatePresenter.swift; sourceTree = "<group>"; };
 		D59CCC2B28005126007AFB17 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 		D59CCC2D28005167007AFB17 /* EndGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGamePresenter.swift; sourceTree = "<group>"; };
 		D5DD7F6727FF660900C3C5B3 /* StopTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopTimerViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D58A91E8280725B3001382CF /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +121,7 @@
 			children = (
 				D51D76C727E77A9B00BE01F7 /* Spy-game */,
 				D51D76C627E77A9B00BE01F7 /* Products */,
+				D58A91E6280725B3001382CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +144,8 @@
 				D57503172803246A00A866C2 /* Spy-game-Bridging-Header.h */,
 				D575031B2803247800A866C2 /* EmptyDataSet */,
 				D51D76F027E8783A00BE01F7 /* SupportingFiles */,
+				D58A91E9280729C0001382CF /* DonateViewController.swift */,
+				D58A91EB280729ED001382CF /* DonatePresenter.swift */,
 			);
 			path = "Spy-game";
 			sourceTree = "<group>";
@@ -300,6 +310,14 @@
 				D57503232803546700A866C2 /* Presenter */,
 			);
 			path = ReadyStartGameModule;
+			sourceTree = "<group>";
+		};
+		D58A91E6280725B3001382CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D58A91E7280725B3001382CF /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D59CCC2828005030007AFB17 /* Presenter */ = {
@@ -595,6 +613,7 @@
 				D5F7FB0527E9C8BF00A96110 /* CreateGamePresenter.swift in Sources */,
 				D51D76C927E77A9B00BE01F7 /* AppDelegate.swift in Sources */,
 				D575032128034DF400A866C2 /* ReadyStartGamePresenter.swift in Sources */,
+				D58A91EC280729ED001382CF /* DonatePresenter.swift in Sources */,
 				D56B601A27F9A4D100446962 /* SpyGamePresenter.swift in Sources */,
 				D56B601E27F9F9F200446962 /* DictionaryExtension.swift in Sources */,
 				D51D76F427E8795900BE01F7 /* ModuleBuilder.swift in Sources */,
@@ -607,6 +626,7 @@
 				D5FBE26A27FE28800034024A /* SpyWinViewController.swift in Sources */,
 				D5F7FB0727E9EFA000A96110 /* RulesViewController.swift in Sources */,
 				D5FBE26527FCDAF40034024A /* TimerPresenter.swift in Sources */,
+				D58A91EA280729C0001382CF /* DonateViewController.swift in Sources */,
 				D5DD7F6A27FF664200C3C5B3 /* StopTimerPresenter.swift in Sources */,
 				D51D76CB27E77A9B00BE01F7 /* SceneDelegate.swift in Sources */,
 				D575031A2803246B00A866C2 /* UIScrollView+EmptyDataSet.m in Sources */,
