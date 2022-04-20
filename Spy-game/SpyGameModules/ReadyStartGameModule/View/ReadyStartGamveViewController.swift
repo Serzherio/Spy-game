@@ -10,7 +10,7 @@ import UIKit
 class ReadyStartGameViewController: UIViewController {
     
     let headTitle = UILabel(textLabel: "Начинаем!", font: .noteworthy50())
-    let subHeadTitle = UILabel(textLabel: "Присаживайтесь поудобнее, расположите экран так, чтобы все видели таймер времени", font: .noteworthy24())
+    let subHeadTitle = UILabel(textLabel: "Присаживайтесь поудобнее, расположите экран так, чтобы все видели таймер времени", font: .noteworthy30())
     let descriptionTitle = UILabel(textLabel: "Задавайте друг другу вопросы, не позволив шпиону угадать локацию", font: .noteworthy24())
     let stopGameButton = UIButton(title: "Поехали!", titleColor: .black, backgroundColor: .white, font: .noteworthy30(), isShadow: true, cornerRadius: 40)
     
@@ -49,7 +49,7 @@ class ReadyStartGameViewController: UIViewController {
             headTitle.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.8),
             subHeadTitle.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.95),
             subHeadTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            subHeadTitle.topAnchor.constraint(equalTo: headTitle.bottomAnchor, constant: 20),
+            subHeadTitle.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             descriptionTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             descriptionTitle.bottomAnchor.constraint(equalTo: stopGameButton.topAnchor, constant: -50),
             descriptionTitle.widthAnchor.constraint(equalToConstant: view.layer.frame.width * 0.95),

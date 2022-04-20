@@ -144,8 +144,6 @@
 				D57503172803246A00A866C2 /* Spy-game-Bridging-Header.h */,
 				D575031B2803247800A866C2 /* EmptyDataSet */,
 				D51D76F027E8783A00BE01F7 /* SupportingFiles */,
-				D58A91E9280729C0001382CF /* DonateViewController.swift */,
-				D58A91EB280729ED001382CF /* DonatePresenter.swift */,
 			);
 			path = "Spy-game";
 			sourceTree = "<group>";
@@ -207,10 +205,36 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		D5218E50281005A70018E6DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D58A91E9280729C0001382CF /* DonateViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5218E51281005B30018E6DB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D58A91EB280729ED001382CF /* DonatePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D5218E52281005BE0018E6DB /* DonateModule */ = {
+			isa = PBXGroup;
+			children = (
+				D5218E50281005A70018E6DB /* View */,
+				D5218E51281005B30018E6DB /* Presenter */,
+			);
+			path = DonateModule;
+			sourceTree = "<group>";
+		};
 		D55CF48D27F4E2A9007C7196 /* SpyGameModules */ = {
 			isa = PBXGroup;
 			children = (
 				D51D76DC27E77C6400BE01F7 /* StartScreenModule */,
+				D5218E52281005BE0018E6DB /* DonateModule */,
 				D5F7FB0127E9C7E800A96110 /* CreateGameScreenModule */,
 				D5E178AF27EC766B001E3268 /* LocationsModule */,
 				D5F7FB0927E9EFB000A96110 /* RulesScreenModule */,

@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "55260921-8702-47C5-8BC1-73F741F67DA0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spy-game/SpyGameModules/SpyGameMainModule/Presenter/SpyGamePresenter.swift"

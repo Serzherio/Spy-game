@@ -87,7 +87,6 @@ class SpyGamePresenter: SpyGamePresenterProtocol {
         default:
             roleForPlay = "Роли доступны только в наборе Базовые"
         }
-        print(roleForPlay)
     }
 
     
